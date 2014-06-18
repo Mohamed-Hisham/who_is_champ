@@ -1,0 +1,10 @@
+
+
+en:
+  devise:
+    registrations:
+    sessions:
+    confirmations:
+    password:
+    mailer:
+    unlock:
