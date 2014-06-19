@@ -2,12 +2,18 @@ Rails.application.routes.draw do
   # Internationalization of the routes
   filter :locale
 
+  resources :admins, :only => :index do
+    root 'admins#index'
+  end
+
   namespace :admin do
     devise_for :businesses, :skip => 'sessions'
   end
 
   devise_for :admins, :controllers => {:sessions => "admins/devise/sessions" }
   devise_for :businesses, :skip => 'registrations'
+
+  # root "admins/devise/sessions#new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

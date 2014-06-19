@@ -2,12 +2,15 @@
 %html{lang: I18n.locale}
   %head
     %title Gamification
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    "application-#{I18n.locale}", media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+  %body.container-fluid
+    = render "layouts/header"
     .container-fluid
       .row-fluid
         = render "layouts/flash_messages"
       .row-fluid
         = yield
+    = render "layouts/footer"
+

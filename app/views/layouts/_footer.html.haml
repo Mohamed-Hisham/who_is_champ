@@ -1,0 +1,6 @@
+%footer
+  %hr
+  - if (I18n.locale.to_sym != I18n.default_locale.to_sym)
+    = link_to 'English', url_for(request.parameters.merge(locale: 'en'))
+  - else
+    = link_to 'ﻋﺮﺑﻰ', url_for(request.parameters.merge(locale: 'ar'))

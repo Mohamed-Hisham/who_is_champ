@@ -7,12 +7,23 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource.class.name.underscore.to_sym
     when :admin
-      admin_root_path
+      admins_root_path
     end
   end
+  # def after_sign_out_path_for(resource)
+  #   case resource.class.name.underscore.to_sym
+  #   when :admin
+  #     new_admin_session_path
+  #   end
+  # end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
     # @stylesheet_direction = I18n.locale == :ar ? 'rtl' : 'ltr'
+  end
+
+  # remove the locale from url if the default is chosen already
+  def default_url_options(options={})
+    (I18n.locale.to_sym.eql?(I18n.default_locale.to_sym) ? {} : {locale: I18n.locale})
   end
 end

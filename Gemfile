@@ -8,9 +8,11 @@ gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'haml-rails', '~> 0.5.3'
-gem 'sass-rails', '~> 4.0.3'
-gem 'bootstrap-sass', '~> 3.1.1.1'
-gem 'compass-rails', '~> 1.1.7'
+# gem 'sass-rails', '~> 4.0.3'
+# gem 'bootstrap-sass', '~> 3.1.1.1'
+gem 'less-rails', '~> 2.5.0'
+gem "twitter-bootstrap-rails", github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
+# gem 'compass-rails', '~> 1.1.7'
 gem 'font-awesome-rails', '~> 4.1.0.0'
 
 gem 'coffee-rails', '~> 4.0.1'
@@ -31,7 +33,7 @@ gem 'jbuilder', '~> 2.0'
 
 # Authentication
 gem 'devise'
-gem 'devise-i18n', '~> 0.10.3'
+# gem 'devise-i18n', '~> 0.10.3'
 # gem 'devise_invitable', '~> 1.3.5'
 
 # Uploads
