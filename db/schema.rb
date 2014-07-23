@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608170001) do
+ActiveRecord::Schema.define(version: 20140723121931) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -31,7 +31,9 @@ ActiveRecord::Schema.define(version: 20140608170001) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
-  create_table "businesses", force: true do |t|
+  create_table "creators", force: true do |t|
+    t.string   "name",                   default: "", null: false
+    t.string   "avatar"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -46,15 +48,12 @@ ActiveRecord::Schema.define(version: 20140608170001) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,  null: false
-    t.string   "unlock_token"
-    t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "businesses", ["confirmation_token"], name: "index_businesses_on_confirmation_token", unique: true, using: :btree
-  add_index "businesses", ["email"], name: "index_businesses_on_email", unique: true, using: :btree
-  add_index "businesses", ["reset_password_token"], name: "index_businesses_on_reset_password_token", unique: true, using: :btree
+  add_index "creators", ["confirmation_token"], name: "index_creators_on_confirmation_token", unique: true, using: :btree
+  add_index "creators", ["email"], name: "index_creators_on_email", unique: true, using: :btree
+  add_index "creators", ["reset_password_token"], name: "index_creators_on_reset_password_token", unique: true, using: :btree
 
 end

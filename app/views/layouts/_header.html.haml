@@ -4,14 +4,28 @@
       %a.navbar-brand{href: "#"} Gamify
       - if admin_signed_in?
         %ul.nav.navbar-nav
-          %li.active
-            %a{href: "#"}
-              = t('nav.profile', default: 'Profile')
-          %li
-            %a{href: "#"} Link
+          -# %li.active
+          -#   %a{href: "#"}
+          -#     = t('nav.profile', default: 'Profile')
+          -# %li
+          -#   %a{href: "#"} Link
         .btn-group.pull-right{style: "padding-top:6px;"}
           .btn.btn-info.dropdown-toggle{data: {toggle: "dropdown"}}
             = current_admin.email
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              = link_to "Sign out", destroy_admin_session_path, method: :delete
+      - if creator_signed_in?
+        %ul.nav.navbar-nav
+          -# %li.active
+          -#   %a{href: "#"}
+          -#     = t('nav.profile', default: 'Profile')
+          -# %li
+          -#   %a{href: "#"} Link
+        .btn-group.pull-right{style: "padding-top:6px;"}
+          .btn.btn-info.dropdown-toggle{data: {toggle: "dropdown"}}
+            = current_creator.email
             %span.caret
           %ul.dropdown-menu
             %li

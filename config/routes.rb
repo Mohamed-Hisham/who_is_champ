@@ -5,10 +5,14 @@ Rails.application.routes.draw do
   resources :admins, :only => :index do
     root 'admins#index'
   end
+  resources :creators, :only => :index do
+    root 'creators#index'
+  end
 
   devise_for :admins, :controllers => {:sessions => "admins/devise/sessions" }
+  devise_for :creators, :controllers => {:registrations=> "creators/devise/registrations",:sessions => "creators/devise/sessions"}
 
-  # root "admins/devise/sessions#new"
+  root "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

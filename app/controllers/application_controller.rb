@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     case resource.class.name.underscore.to_sym
     when :admin
       admins_root_path
+    when :creator
+      creators_root_path
     end
   end
 
@@ -15,6 +17,8 @@ class ApplicationController < ActionController::Base
     case resource
     when :admin
       new_admin_session_path
+    when :creator
+      root_path
     end
   end
 

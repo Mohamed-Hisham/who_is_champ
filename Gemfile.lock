@@ -138,16 +138,13 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     rack (1.5.2)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rack-webconsole-pry (0.1.9)
-      json
-      multi_json (>= 1.0.3)
-      pry
-      rack
     railroady (1.1.1)
     rails (4.1.1)
       actionmailer (= 4.1.1)
@@ -178,7 +175,7 @@ GEM
     sexp_processor (4.4.3)
     sextant (0.2.4)
       rails (>= 3.2)
-    slop (3.5.0)
+    slop (3.6.0)
     spring (1.1.3)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -232,7 +229,7 @@ DEPENDENCIES
   mini_magick (~> 3.7.0)
   mysql2
   powder (~> 0.2.1)
-  rack-webconsole-pry (~> 0.1.9)
+  pry-rails
   railroady
   rails (= 4.1.1)
   routing-filter (~> 0.4.0.pre)
