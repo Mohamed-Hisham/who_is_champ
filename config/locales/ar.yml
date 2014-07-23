@@ -20,5 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ar:
+  nav:
+    profile: "اﻟﻤﻠﻒ اﻟﺸﺨﺼﻲ"
   common:
     welcome: "اﻫﻼ"
+    admin: "اﺩﻣﻦ"

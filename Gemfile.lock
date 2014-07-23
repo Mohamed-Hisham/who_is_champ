@@ -148,6 +148,7 @@ GEM
       multi_json (>= 1.0.3)
       pry
       rack
+    railroady (1.1.1)
     rails (4.1.1)
       actionmailer (= 4.1.1)
       actionpack (= 4.1.1)
@@ -232,6 +233,7 @@ DEPENDENCIES
   mysql2
   powder (~> 0.2.1)
   rack-webconsole-pry (~> 0.1.9)
+  railroady
   rails (= 4.1.1)
   routing-filter (~> 0.4.0.pre)
   sdoc (~> 0.4.0)

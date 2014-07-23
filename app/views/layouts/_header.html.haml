@@ -5,7 +5,8 @@
       - if admin_signed_in?
         %ul.nav.navbar-nav
           %li.active
-            %a{href: "#"} Profile
+            %a{href: "#"}
+              = t('nav.profile', default: 'Profile')
           %li
             %a{href: "#"} Link
         .btn-group.pull-right{style: "padding-top:6px;"}

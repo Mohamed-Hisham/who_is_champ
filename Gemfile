@@ -47,7 +47,6 @@ gem 'routing-filter', '~> 0.4.0.pre'
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'debugger'
   gem 'erb2haml', '~> 0.1.5'
   gem 'awesome_print', '~> 1.2.0'
   gem 'sextant', '~> 0.2.4'
@@ -58,8 +57,10 @@ group :development do
   gem 'meta_request', '~> 0.3.0'
   gem 'powder', '~> 0.2.1'
 end
-group :test do
-# Use debugger
+
+group :development, :test do
+  gem 'railroady'
+  # Use debugger
   gem 'debugger'
 end
 

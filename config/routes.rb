@@ -6,12 +6,7 @@ Rails.application.routes.draw do
     root 'admins#index'
   end
 
-  namespace :admin do
-    devise_for :businesses, :skip => 'sessions'
-  end
-
   devise_for :admins, :controllers => {:sessions => "admins/devise/sessions" }
-  devise_for :businesses, :skip => 'registrations'
 
   # root "admins/devise/sessions#new"
   # The priority is based upon order of creation: first created -> highest priority.

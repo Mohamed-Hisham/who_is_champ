@@ -10,16 +10,16 @@ class ApplicationController < ActionController::Base
       admins_root_path
     end
   end
-  # def after_sign_out_path_for(resource)
-  #   case resource.class.name.underscore.to_sym
-  #   when :admin
-  #     new_admin_session_path
-  #   end
-  # end
+
+  def after_sign_out_path_for(resource)
+    case resource
+    when :admin
+      new_admin_session_path
+    end
+  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
-    # @stylesheet_direction = I18n.locale == :ar ? 'rtl' : 'ltr'
   end
 
   # remove the locale from url if the default is chosen already

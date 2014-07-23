@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  welcome: "Welcome"
+  nav:
+    profile: "Profile"
+  common:
+    welcome: "Welcome"
+    admin: "Admin"

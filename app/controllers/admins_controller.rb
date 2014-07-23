@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
   before_filter :find_model
+  before_filter :authenticate_admin!
 
   def index
   end
