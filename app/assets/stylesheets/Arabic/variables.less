@@ -14,11 +14,18 @@
 @gray-lighter:           #ecf0f1; // #eee
 
 @brand-primary:         #2C3E50;
-@brand-success:         #18BC9C;
+@brand-success:         #2ecc71;
 @brand-info:            #3498DB;
 @brand-warning:         #F39C12;
 @brand-danger:          #E74C3C;
 
+// ltr or rtl
+@text-direction:        rtl;
+
+@bi-app-left            : ~`"@{text-direction}" === 'ltr' ? 'left'  : 'right'`;
+@bi-app-right           : ~`"@{text-direction}" === 'ltr' ? 'right' : 'left'`;
+@bi-app-direction       : @text-direction;
+@bi-app-invert-direction: ~`"@{text-direction}" === 'ltr' ? 'rtl' : 'ltr'`;
 
 //== Scaffolding
 //

@@ -1,8 +1,8 @@
 %nav.navbar.navbar-fixed-top.navbar-inverse
   .navbar-innner
     .container-fluid
-      %a.navbar-brand{href: "#"} Gamify
       - if admin_signed_in?
+        %a.navbar-brand{href: admin_path(current_admin)} LOGO
         %ul.nav.navbar-nav
           -# %li.active
           -#   %a{href: "#"}
@@ -16,17 +16,22 @@
           %ul.dropdown-menu
             %li
               = link_to "Sign out", destroy_admin_session_path, method: :delete
-      - if creator_signed_in?
-        %ul.nav.navbar-nav
-          -# %li.active
-          -#   %a{href: "#"}
-          -#     = t('nav.profile', default: 'Profile')
-          -# %li
-          -#   %a{href: "#"} Link
-        .btn-group.pull-right{style: "padding-top:6px;"}
-          .btn.btn-info.dropdown-toggle{data: {toggle: "dropdown"}}
-            = current_creator.email
-            %span.caret
-          %ul.dropdown-menu
-            %li
-              = link_to "Sign out", destroy_admin_session_path, method: :delete
+      - else
+        - if  creator_signed_in?
+          %a.navbar-brand{href: creator_path(current_creator)} LOGO
+          %ul.nav.navbar-nav
+            -# %li.active
+            -#   %a{href: "#"}
+            -#     = t('nav.profile', default: 'Profile')
+            -# %li
+            -#   %a{href: "#"} Link
+          .btn-group.pull-right{style: "padding-top:6px;"}
+            .btn.btn-info.dropdown-toggle{data: {toggle: "dropdown"}}
+              = current_creator.email
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                = link_to "Sign out", destroy_creator_session_path, method: :delete
+          = image_tag current_creator.avatar.thumb.url, class: "img-circle pull-right", :style => "width:50px;height:50px;"
+        - else
+          %a.navbar-brand{href: root_path} LOGO

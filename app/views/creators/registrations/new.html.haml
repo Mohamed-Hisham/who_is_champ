@@ -1,25 +1,31 @@
-%h2 Creator Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  %div
-    = f.label :name
-    %br/
-    = f.text_field :name, autofocus: true, placeholder: "Name"
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, placeholder: "Email"
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off", placeholder: "Password"
-  %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation"
-  %div
-    = f.label "Upload your Avatar"
-    = f.file_field :avatar
-  %br/
-  %div= f.submit "Sign up", class: "btn"
-= render "creators/shared/links"
+.container-fluid
+  .col-md-offset-1
+    %h3 Creator Sign up
+  .col-md-offset-2
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal"}) do |f|
+      = devise_error_messages!
+      .form-group
+        = f.label :name, class: "col-sm-4 control-label"
+        .col-sm-4
+          = f.text_field :name, autofocus: true, placeholder: "Name", class: "form-control"
+      .form-group
+        = f.label :email, class: "col-sm-4 control-label"
+        .col-sm-4
+          = f.email_field :email, placeholder: "Email", class: "form-control"
+      .form-group
+        = f.label :password, class: "col-sm-4 control-label"
+        .col-sm-4
+          = f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
+      .form-group
+        = f.label :password_confirmation, class: "col-sm-4 control-label"
+        .col-sm-4
+          = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation", class: "form-control"
+      .form-group
+        = f.label "Upload your Avatar", class: "col-sm-4 control-label"
+        .col-sm-4
+          = f.file_field :avatar, class: "form-control"
+      .form-group
+        .col-md-offset-4.col-sm-4
+          = f.submit "Sign up", class: "btn btn-success btn-block"
+      .col-md-offset-4.col-sm-4
+        = render "creators/shared/links"

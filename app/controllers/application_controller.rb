@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource.class.name.underscore.to_sym
     when :admin
-      admins_root_path
+      admin_path(current_admin)
     when :creator
-      creators_root_path
+      creator_path(current_creator)
     end
   end
 

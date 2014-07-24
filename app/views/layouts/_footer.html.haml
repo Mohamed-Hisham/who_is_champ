@@ -4,3 +4,5 @@
     = link_to 'English', url_for(request.parameters.merge(locale: 'en'))
   - else
     = link_to 'ﻋﺮﺑﻰ', url_for(request.parameters.merge(locale: 'ar'))
+  .pull-right
+    = link_to "Admin", new_admin_session_path

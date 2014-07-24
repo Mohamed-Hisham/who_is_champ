@@ -1,1 +1,31 @@
-%h3 Homepage
+.container-fluid
+  .row
+    .col-md-5.col-md-offset-5
+      %h3 Gamify
+      %h4 Slogan............
+
+  .row
+    .col-md-5.col-md-offset-1
+      %h3 Creator
+      = form_for("creator", url: new_creator_session_path, html: {class: "form-horizontal"}) do |c|
+        .form-group
+          .col-xs-6
+            = c.text_field :email, placeholder: "Email Address", class: "form-control"
+        .form-group
+          .col-xs-6
+            = c.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
+        .form-group
+          .col-xs-6
+            = c.submit "Sign in", class: "btn btn-warning btn-block"
+    .col-md-5.col-md-offset-1
+      %h3 User
+      = form_for("creator", url: new_creator_session_path, html: {class: "form-horizontal"}) do |c|
+        .form-group
+          .col-xs-6
+            = c.text_field :email, placeholder: "Email Address", class: "form-control"
+        .form-group
+          .col-xs-6
+            = c.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
+        .form-group
+          .col-xs-6
+            = c.submit "Sign in", class: "btn btn-primary btn-block"
