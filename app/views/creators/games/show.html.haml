@@ -1,0 +1,49 @@
+.container
+  .row
+    .col-md-3
+      %label{class: "title-h3"} #{@game.name}
+    .col-md-3
+      = link_to 'Edit', edit_creator_game_path(@creator, @game), class: "btn btn-warning", style: "width:127px;"
+  .row
+    .col-md-6
+      %h5 Game Description:
+      .well.well-sm
+        = @game.description
+  .row
+    .col-md-6
+      %h5 Number of Rules: 10
+      -# = @rules.count
+  .row
+    .col-md-6
+      %h5 Number of game members: 4
+  .row
+    .row
+      .col-md-5
+        %label{class:"game-list-title"} Rules
+        = link_to 'Add New Rule', edit_creator_game_path(@creator, @game), class: "btn btn-success pull-right", style: "width:127px;"
+      .col-md-6.col-md-offset-1
+        %label{class:"game-list-title"} Leaderboard
+
+    .row
+      .col-md-5
+        %div{id: "rules"}
+          %table{class: "table table-hover table-condensed table-striped"}
+            -# - @games.each do |game|
+            - 7.times do
+              %tr
+                %td
+                  -# = game.name
+                  Rule name
+
+      .col-md-6.col-md-offset-1
+        %div{id: "rules"}
+          %table{class: "table table-hover table-condensed table-striped"}
+            -# - @games.each do |game|
+            - 7.times do
+              %tr
+                %td
+                  -# = game.name
+                  User name
+  .col-md-3.col-md-offset-4{style:"margin-top:-80px;"}
+    = link_to 'Back to Profile', creator_path, class: "btn btn-default btn-block"
+

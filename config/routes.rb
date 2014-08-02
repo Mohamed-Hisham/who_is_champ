@@ -1,19 +1,22 @@
 Rails.application.routes.draw do
+
   # Internationalization of the routes
   filter :locale
   devise_for :admins, :controllers => {:sessions => "admins/devise/sessions" }
   devise_for :creators, :controllers => {:registrations=> "creators/devise/registrations", :sessions => "creators/devise/sessions"}
 
   resources :admins, only: :show
-  resources :creators, only: [:show, :edit, :update]
-
-  namespace :admins do
-
+  resources :creators, only: [:show, :edit, :update] do
+    resources :games, :controller => "creators/games", except: :index
   end
 
-  namespace :creators do
+  # namespace :admins do
 
-  end
+  # end
+
+  # namespace :creators do
+
+  # end
 
   root to: "home#index"
 

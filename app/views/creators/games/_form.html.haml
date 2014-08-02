@@ -1,0 +1,33 @@
+.col-md-offset-1
+  = form_for [@creator, @game], html: {class: "form-horizontal"} do |f|
+    - if @game.errors.any?
+      .alert.alert-danger
+        %h4= "#{pluralize(@game.errors.count, "error")} prohibited this game from being saved:"
+        %ul
+          - @game.errors.full_messages.each do |msg|
+            %li= msg
+    .col-md-7
+      .form-group
+        = f.label :name, 'Game Name', class: "col-sm-6 control-label"
+        .col-sm-6
+          = f.text_field :name, placeholder: 'Game Name', class: "form-control"
+      .form-group
+        = f.label :description, 'Game Description', class: "col-sm-6 control-label"
+        .col-sm-6
+          = f.text_area :description, placeholder: 'Game Description', class: "form-control"
+      .form-group
+        = f.label :pts_per_rule, 'Points per completed rule', class: "col-sm-6 control-label"
+        .col-sm-6
+          = f.text_field :pts_per_rule, placeholder: 'Points per rule', class: "form-control", type: 'number'
+      .form-group
+        = f.label :expert_rank, 'Game Ranks', class: "col-sm-6 control-label"
+
+        .col-sm-6
+          = f.text_field :expert_rank, placeholder: 'Expert Rank', class: "form-control"
+        .col-sm-6.col-md-offset-6
+          = f.text_field :normal_rank, placeholder: 'Normal Rank', class: "form-control"
+        .col-sm-6.col-md-offset-6
+          = f.text_field :starter_rank, placeholder: 'Starter Rank', class: "form-control"
+      .form-group
+        .col-md-6.col-md-offset-6
+          = f.submit 'Save', class: "btn btn-success btn-block"

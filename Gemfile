@@ -56,6 +56,7 @@ group :development do
   gem 'pry-rails'
   gem 'meta_request', '~> 0.3.0'
   gem 'powder', '~> 0.2.1'
+  # gem 'rails-erd', '~> 1.1.0'
 end
 
 group :development, :test do

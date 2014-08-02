@@ -5,12 +5,15 @@
     = stylesheet_link_tag    "application-#{I18n.locale}", media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body.container-fluid
-    = render "layouts/header"
+  %body
+    .container-fluid
+      = render "layouts/header"
     .container-fluid
       .row-fluid
         = render "layouts/flash_messages"
       .row-fluid
         = yield
-    = render "layouts/footer"
+    .footer.navbar-fixed-bottom
+      .container-fluid
+        = render "layouts/footer"
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723121931) do
+ActiveRecord::Schema.define(version: 20140801171659) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -55,5 +55,17 @@ ActiveRecord::Schema.define(version: 20140723121931) do
   add_index "creators", ["confirmation_token"], name: "index_creators_on_confirmation_token", unique: true, using: :btree
   add_index "creators", ["email"], name: "index_creators_on_email", unique: true, using: :btree
   add_index "creators", ["reset_password_token"], name: "index_creators_on_reset_password_token", unique: true, using: :btree
+
+  create_table "games", force: true do |t|
+    t.string   "name",                       null: false
+    t.text     "description",                null: false
+    t.integer  "pts_per_rule", default: 100, null: false
+    t.string   "expert_rank",                null: false
+    t.string   "normal_rank",                null: false
+    t.string   "starter_rank",               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "creator_id"
+  end
 
 end

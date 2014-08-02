@@ -1,14 +1,42 @@
-.container-fluid
-  %h3 Creator Hompage
-  .col-md-3
-    .col-md-8
-      = image_tag @creator.avatar.url , class: "img-thumbnail", :style => "width:140px;height:140px;"
+.container
+  .row.profile-info
+    .ribbon.ribbon-orange.ribbon-large.ribbon-div
+      .banner
+        .text
+          Creator
     .col-md-2
-      %h3
-        = @creator.name
-      %div
-        = link_to "Edit Profile", edit_creator_path(@creator), class: "btn btn-default"
-
-%hr
-  %div
-    = link_to "Create Game", class: "btn btn-warning"
+      = image_tag @creator.avatar.url , class: "img-circle", :style => "width:140px;height:140px;"
+    .col-md-8
+      .row
+        %h3 #{@creator.name}
+      .row
+        .col-md-3
+          %h4 #{@games.count} Games
+        .col-md-3
+          %h4 #{@games.count} Rules
+        .col-md-5
+          %h4 #{@games.count} Game Members
+  %br
+  .row
+    .col-md-8
+      .row
+        %label{class: "game-list-title"} Games list
+        = link_to "Create Game", new_creator_game_path(@creator), class: "pull-right btn btn-success"
+      %br
+      .row
+        %div{id: "rules"}
+          %table{class: "table table-hover table-condensed table-striped"}
+            - if @games.any?
+              -# - @games.each do |game|
+              - 7.times do
+                %tr
+                  %td
+                    -# = game.name
+                    = @games.first.name
+                  %td
+                    7 Rules
+                  %td
+                    -# = link_to "View Game", creator_game_path(@creator, game), class: "btn btn-info pull-left"
+                    = link_to "View Game", creator_game_path(@creator, @games.first), class: "btn btn-primary pull-left"
+            - else
+              %h4 No games created yet!

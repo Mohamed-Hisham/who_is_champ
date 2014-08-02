@@ -1,0 +1,18 @@
+%h1 Games
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @games.each do |game|
+    %tr
+      = game.name
+      %td= link_to 'Show', creator_game_path(@creator, game)
+      %td= link_to 'Edit', edit_creator_game_path(@creator,game)
+      %td= link_to 'Destroy', creator_game_path(@creator, game), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Game', new_creator_game_path

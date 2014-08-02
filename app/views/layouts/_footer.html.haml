@@ -1,8 +1,13 @@
-%footer
-  %hr
+.col-md-2
   - if (I18n.locale.to_sym != I18n.default_locale.to_sym)
-    = link_to 'English', url_for(request.parameters.merge(locale: 'en'))
+    = link_to 'English', url_for(request.parameters.merge(locale: 'en')), class: "btn btn-sm btn-danger", style: "margin-bottom:10px;"
   - else
-    = link_to 'ﻋﺮﺑﻰ', url_for(request.parameters.merge(locale: 'ar'))
-  .pull-right
-    = link_to "Admin", new_admin_session_path
+    = link_to 'ﻋﺮﺑﻰ', url_for(request.parameters.merge(locale: 'ar')), class: "btn btn-sm btn-danger", style: "margin-bottom:10px;"
+
+.col-md-5.col-md-offset-3{style:"color:white;font-size:10pt;"}
+  © Created by Mohamed Hisham
+
+.col-md-2
+  - if current_creator.nil?
+    .pull-right
+      = link_to "Admin", new_admin_session_path, class: "btn btn-sm btn-info"

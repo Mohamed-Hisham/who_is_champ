@@ -1,0 +1,8 @@
+.container
+  %h3 New game
+  .row
+    = render 'form'
+
+  .row
+    .col-md-offset-4
+      = link_to 'Back', creator_path(@creator), class: "btn btn-default", style: "width:37%;margin-left:35px;"

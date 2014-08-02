@@ -3,6 +3,7 @@ class CreatorsController < ApplicationController
   before_filter :prepare_creator
 
   def show
+    @games = @creator.games.all.to_a
   end
 
   def edit

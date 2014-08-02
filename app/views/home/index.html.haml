@@ -2,10 +2,11 @@
   .row
     .col-md-5.col-md-offset-5
       %h3 Gamify
-      %h4 Slogan............
+    .col-md-5.col-md-offset-4
+      %h4 Gamify your work ... Gamify your life!
 
   .row
-    .col-md-5.col-md-offset-1
+    .col-md-5.col-md-offset-2
       %h3 Creator
       = form_for("creator", url: new_creator_session_path, html: {class: "form-horizontal"}) do |c|
         .form-group
@@ -17,15 +18,15 @@
         .form-group
           .col-xs-6
             = c.submit "Sign in", class: "btn btn-warning btn-block"
-    .col-md-5.col-md-offset-1
+    .col-md-4
       %h3 User
       = form_for("creator", url: new_creator_session_path, html: {class: "form-horizontal"}) do |c|
         .form-group
-          .col-xs-6
+          .col-xs-8
             = c.text_field :email, placeholder: "Email Address", class: "form-control"
         .form-group
-          .col-xs-6
+          .col-xs-8
             = c.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
         .form-group
-          .col-xs-6
+          .col-xs-8
             = c.submit "Sign in", class: "btn btn-primary btn-block"
