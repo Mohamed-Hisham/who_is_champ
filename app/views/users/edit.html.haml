@@ -1,0 +1,17 @@
+.container
+  %h3 Edit Profile
+
+  = form_for @user do |user|
+    = user.error_messages class: 'alert alert-error'
+
+    %div
+      = user.label :name
+      %br/
+      = user.text_field :name, placeholder: "Name"
+    %div
+      = user.label "Change your avatar"
+      %br/
+      = image_tag @user.avatar.url, class:"img-thumbnail", :style => "width:200px;height:200px;"
+      = user.file_field :avatar
+    %div
+      = user.submit "Save changes", class: "btn btn-success"

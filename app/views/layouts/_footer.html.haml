@@ -8,6 +8,6 @@
   © Created by Mohamed Hisham
 
 .col-md-2
-  - if current_creator.nil?
+  - if current_creator.nil? && current_user.nil?
     .pull-right
       = link_to "Admin", new_admin_session_path, class: "btn btn-sm btn-info"

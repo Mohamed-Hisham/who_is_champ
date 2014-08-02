@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
       admin_path(current_admin)
     when :creator
       creator_path(current_creator)
+    when :user
+      user_path(current_user)
     end
   end
 
@@ -18,6 +20,8 @@ class ApplicationController < ActionController::Base
     when :admin
       new_admin_session_path
     when :creator
+      root_path
+    when :user
       root_path
     end
   end
@@ -29,5 +33,11 @@ class ApplicationController < ActionController::Base
   # remove the locale from url if the default is chosen already
   def default_url_options(options={})
     (I18n.locale.to_sym.eql?(I18n.default_locale.to_sym) ? {} : {locale: I18n.locale})
+  end
+
+  protected
+  def authenticate_inviter!
+    #should be true if creator is logged in, I would use your #creator_signed_in? method
+    authenticate_creator!(:force => true)
   end
 end

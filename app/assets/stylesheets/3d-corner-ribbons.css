@@ -65,6 +65,7 @@
 	height: 12px;
 	position: absolute;
 	width: 30px;
+	/*border: 1px dashed #2c3e50;*/
 }
 
 .ribbon-small .banner::after,
@@ -76,7 +77,7 @@
 .ribbon-large .banner::after,
 .ribbon-large .banner::before {
 	height: 18px;
-	width: 45px;
+	width: 45px;border: 1px dashed #2c3e50;
 }
 
 .ribbon .banner::before {
@@ -89,6 +90,7 @@
 	-ms-transform-origin: 100% center;
 	-o-transform-origin: 100% center;
 	left: -45px;
+	border: 1px dashed #2c3e50;
 }
 
 .ribbon-small .banner::before {
@@ -99,6 +101,7 @@
 .ribbon-large .banner::before {
 	top: 9px;
 	left: -68px;
+	/*border: 1px dashed #2c3e50;*/
 }
 
 .ribbon .banner::after {
@@ -111,6 +114,7 @@
 	-ms-transform-origin: 0 center;
 	-o-transform-origin: 0 center;
 	right: -17px;
+	/*border: 1px dashed #2c3e50;*/
 }
 
 .ribbon-small .banner::after {
@@ -121,6 +125,7 @@
 .ribbon-large .banner::after {
 	top: 45px;
 	right: -26px;
+	/*border: 1px dashed #2c3e50;*/
 }
 
 
@@ -129,6 +134,7 @@
 	width: 100%;
 	float: none;
 	font-size: 10px;
+	/*border: 1px dashed #2c3e50;*/
 }
 
 .ribbon .text {
@@ -142,6 +148,7 @@
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.20);
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	border: 1px dashed #2c3e50;
 }
 
 /* small text */
@@ -170,6 +177,7 @@
 	top: 0;
 	width: 100%;
 	z-index: -1;
+	/*border: 1px dashed #2c3e50;*/
 }
 
 /* small text */
@@ -231,12 +239,12 @@
 /* blue */
 .ribbon-blue .banner::after,
 .ribbon-blue .banner::before {
-	background-color: #0044cc;
+	background-color: #2980b9;
 }
 .ribbon-blue .text::before,
 .ribbon-blue .text::after,
 .no-css-transforms .ribbon-blue .text {
-	background-color: #0088cc;
+	background-color: #2980b9;
 }
 
 /* mms blue */
@@ -275,12 +283,12 @@
 /* orange */
 .ribbon-orange .banner::after,
 .ribbon-orange .banner::before {
-	background-color: #f89406;
+	background-color: #e67e22;
 }
 .ribbon-orange .text::before,
 .ribbon-orange .text::after,
 .no-css-transforms .ribbon-orange .text {
-	background-color: #fbb450;
+	background-color: #e67e22;
 }
 
 /* red */

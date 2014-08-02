@@ -33,8 +33,8 @@ gem 'jbuilder', '~> 2.0'
 
 # Authentication
 gem 'devise'
+gem 'devise_invitable', '~> 1.3.5'
 # gem 'devise-i18n', '~> 0.10.3'
-# gem 'devise_invitable', '~> 1.3.5'
 
 # Uploads
 gem 'carrierwave', '~> 0.10.0'
@@ -56,7 +56,7 @@ group :development do
   gem 'pry-rails'
   gem 'meta_request', '~> 0.3.0'
   gem 'powder', '~> 0.2.1'
-  # gem 'rails-erd', '~> 1.1.0'
+  gem 'rails-erd', '~> 1.1.0'
 end
 
 group :development, :test do
