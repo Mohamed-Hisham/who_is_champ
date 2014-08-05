@@ -1,31 +1,33 @@
 class Users::Devise::InvitationsController < Devise::InvitationsController
+  before_action :prepare_game, except: :edit
 
-  # GET /resource/invitation/new
+  # GET /users/invitation/new
   def new
     @creator = current_creator
     super
   end
 
-  # POST /resource/invitation
+  # POST /users/invitation
   def create
     self.resource = invite_resource
 
-    if resource.errors.empty?
+    if resource.errors.empty? && !params[:user][:email].nil?
       yield resource if block_given?
       set_flash_message :notice, :send_instructions, :email => self.resource.email if self.resource.invitation_sent_at
-      respond_with resource, :location => creator_path(current_creator)
+      respond_with resource, :location => creator_game_path(current_creator, @game)
     else
-      respond_with_navigational(resource) { render :new }
+      flash[:error]= "The email you input is either invalid or empty. Please input a valid one."
+      redirect_to creator_game_path(current_creator, @game)
     end
   end
 
-  # GET /resource/invitation/accept?invitation_token=abcdef
+  # GET /users/invitation/accept?invitation_token=abcdef
   def edit
     resource.invitation_token = params[:invitation_token]
     render :edit
   end
 
-  # PUT /resource/invitation
+  # PUT /users/invitation
   def update
     self.resource = accept_resource
 
@@ -70,6 +72,7 @@ class Users::Devise::InvitationsController < Devise::InvitationsController
   end
 
   def invite_params
+    devise_parameter_sanitizer.for(:invite) << :game_id
     devise_parameter_sanitizer.sanitize(:invite)
   end
 
@@ -77,6 +80,15 @@ class Users::Devise::InvitationsController < Devise::InvitationsController
     devise_parameter_sanitizer.for(:accept_invitation) << :name
     devise_parameter_sanitizer.for(:accept_invitation) << :email
     devise_parameter_sanitizer.for(:accept_invitation) << :avatar
+    devise_parameter_sanitizer.for(:accept_invitation) << :game_id
     devise_parameter_sanitizer.sanitize(:accept_invitation)
   end
+
+  def prepare_game
+    @game = Game.find(params[:user][:game_id]) if params[:user][:game_id]
+  end
+
+  # def users_params
+  #   params.require(:invite).permit(:game_id)
+  # end
 end

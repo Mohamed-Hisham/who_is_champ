@@ -5,28 +5,42 @@
     .col-md-5.col-md-offset-4
       %h4 Gamify your work ... Gamify your life!
 
-  .row
-    .col-md-5.col-md-offset-2
-      %h3 Creator
-      = form_for("creator", url: new_creator_session_path, html: {class: "form-horizontal"}) do |c|
-        .form-group
-          .col-xs-6
-            = c.text_field :email, placeholder: "Email Address", class: "form-control"
-        .form-group
-          .col-xs-6
-            = c.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
-        .form-group
-          .col-xs-6
-            = c.submit "Sign in", class: "btn btn-warning btn-block"
-    .col-md-4
-      %h3 User
-      = form_for("creator", url: new_creator_session_path, html: {class: "form-horizontal"}) do |c|
-        .form-group
-          .col-xs-8
-            = c.text_field :email, placeholder: "Email Address", class: "form-control"
-        .form-group
-          .col-xs-8
-            = c.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
-        .form-group
-          .col-xs-8
-            = c.submit "Sign in", class: "btn btn-primary btn-block"
+  - unless user_signed_in? || creator_signed_in?
+    .row
+      .col-md-5.col-md-offset-1
+        %h3 Creator
+        = form_for("creator", url: new_creator_session_path, html: {class: "form-horizontal"}) do |c|
+          .form-group
+            .col-xs-6
+              = c.text_field :email, placeholder: "Email Address", class: "form-control"
+          .form-group
+            .col-xs-6
+              = c.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
+          .form-group
+            .col-xs-6
+              = c.submit "Sign in", class: "btn btn-warning btn-block"
+      .col-md-2
+        = image_tag 'logo.png', class: "img-circle img-responsive", style:"width:170px;margin-top:50px;margin-left:-120px;"
+      .col-md-4
+        %h3 User
+        = form_for("user", url: new_user_session_path, html: {class: "form-horizontal"}) do |c|
+          .form-group
+            .col-xs-8
+              = c.text_field :email, placeholder: "Email Address", class: "form-control"
+          .form-group
+            .col-xs-8
+              = c.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
+          .form-group
+            .col-xs-8
+              = c.submit "Sign in", class: "btn btn-info btn-block"
+
+  - else
+    .row
+    %br
+      .col-md-4.col-md-offset-4
+        - if creator_signed_in?
+          = link_to "Begin", creator_path(current_creator), class: "btn btn-block btn-primary"
+
+        - else
+          - if user_signed_in?
+            = link_to "Begin", user_path(current_user), class: "btn btn-block btn-primary"

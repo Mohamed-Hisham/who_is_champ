@@ -2,13 +2,10 @@
   .navbar-innner
     .container-fluid
       - if admin_signed_in?
-        %a.navbar-brand{href: admin_path(current_admin)} LOGO
-        %ul.nav.navbar-nav
-          -# %li.active
-          -#   %a{href: "#"}
-          -#     = t('nav.profile', default: 'Profile')
-          -# %li
-          -#   %a{href: "#"} Link
+        = link_to admin_path(current_admin) do
+          = image_tag 'logo.png', class:"logo pull-left"
+          .navbar-brand
+            Gamify
         .btn-group.pull-right{style: "padding-top:6px;"}
           .btn.btn-info.dropdown-toggle{data: {toggle: "dropdown"}}
             = current_admin.email
@@ -17,16 +14,45 @@
             %li
               = link_to "Sign out", destroy_admin_session_path, method: :delete
       - else
-        - if user_signed_in?
-          %a.navbar-brand{href: user_path(current_user)} LOGO
+        - if creator_signed_in?
+          = link_to creator_path(current_creator) do
+            = image_tag 'logo.png', class:"logo pull-left"
+            .navbar-brand
+              Gamify
           .pull-right{data: {"toggle" => "dropdown"}}
-            = image_tag current_user.avatar.thumb.url, class: "header-avatar img-circle dropdown-toggle", :style => "width:50px;height:50px;"
+            = image_tag current_creator.avatar.thumb.url, class: "header-avatar img-circle dropdown-toggle", :style => "width:50px;height:50px;"
             %i.fa.fa-caret-down
           %ul.dropdown-menu.pull-right
             %li
-              = link_to "Profile Settings", edit_user_path(@user)
+              = link_to "Profile Settings", edit_creator_path(current_creator)
             %li
-              = link_to "Sign out", destroy_user_session_path, method: :delete
-
+              = link_to "Sign out", destroy_creator_session_path, method: :delete
+          %ul.nav.navbar-nav.pull-right
+            %li
+              = link_to "About", about_path
         - else
-          %a.navbar-brand{href: root_path} LOGO
+          - if user_signed_in?
+            = link_to user_path(current_user) do
+              = image_tag 'logo.png', class:"logo pull-left"
+              .navbar-brand
+                Gamify
+            .pull-right{data: {"toggle" => "dropdown"}}
+              = image_tag current_user.avatar.thumb.url, class: "header-avatar img-circle dropdown-toggle", :style => "width:50px;height:50px;"
+              %i.fa.fa-caret-down
+            %ul.dropdown-menu.pull-right
+              %li
+                = link_to "Profile Settings", edit_user_path(current_user)
+              %li
+                = link_to "Sign out", destroy_user_session_path, method: :delete
+            %ul.nav.navbar-nav.pull-right
+              %li
+                = link_to "About", about_path
+
+          - else
+            = link_to root_path do
+              = image_tag 'logo.png', class:"logo pull-left"
+              .navbar-brand
+                Gamify
+            %ul.nav.navbar-nav.pull-right
+              %li
+                = link_to "About", about_path

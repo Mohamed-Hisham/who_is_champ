@@ -4,6 +4,7 @@
     %title Gamification
     = stylesheet_link_tag    "application-#{I18n.locale}", media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = favicon_link_tag 'favicon.ico'
     = csrf_meta_tags
   %body
     .container-fluid
@@ -13,6 +14,6 @@
         = render "layouts/flash_messages"
       .row-fluid
         = yield
-    .footer.navbar-fixed-bottom{style: "padding-top:10px;"}
+    .footer.navbar-fixed-bottom{style: "padding-top:5px;margin-bottom:-5px;"}
       .container-fluid
         = render "layouts/footer"

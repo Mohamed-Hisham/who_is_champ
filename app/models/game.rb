@@ -6,4 +6,6 @@ class Game < ActiveRecord::Base
 
   # Relations
   belongs_to :creator
+  has_many :users, dependent: :destroy
+  has_many :rules, dependent: :destroy
 end

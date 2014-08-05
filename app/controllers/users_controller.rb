@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_filter :prepare_user
 
   def show
-    # @games = @creator.games.all.to_a
+    @game = @user.game
   end
 
   def edit

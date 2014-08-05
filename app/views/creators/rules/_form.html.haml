@@ -1,0 +1,30 @@
+= form_for [@creator, @game, @rule], :html => {:class => "form-horizontal"} do |f|
+  - if @rule.errors.any?
+    #error_explanation
+      %h3= "#{pluralize(@rule.errors.count, "error")} prohibited this rule from being saved:"
+      %ul
+        - @rule.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    .col-md-12
+      = f.text_field :description, placeholder: "Rule Description", class: "form-control"
+  .form-group
+    .row
+      .col-md-3
+        = f.label :priority, "Rule Priority"
+      .radio
+        .col-md-2
+          %label{value: :high}
+            = f.radio_button :priority,:high
+            High
+        .col-md-2
+          %label{value: :normal}
+            = f.radio_button :priority,:normal
+            Normal
+        .col-md-2
+          %label{value: :low}
+            = f.radio_button :priority,:low
+            Low
+  .form-group
+    .col-md-offset-4
+      = f.submit "Add Rule", class:"btn btn-success"

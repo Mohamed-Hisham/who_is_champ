@@ -4,6 +4,8 @@
       %label{class: "title-h3"} #{@game.name}
     .col-md-3
       = link_to 'Edit', edit_creator_game_path(@creator, @game), class: "btn btn-warning", style: "width:127px;"
+    .col-md-3.pull-right
+      %button{class: "btn btn-success", style: "width:127px;", data: {toggle:"modal", target:"#inviteModal"}} Invite Users
   .row
     .col-md-6
       %h5 Game Description:
@@ -11,39 +13,142 @@
         = @game.description
   .row
     .col-md-6
-      %h5 Number of Rules: 10
-      -# = @rules.count
+      %h5 Number of Rules: #{@game.rules.count}
   .row
     .col-md-6
-      %h5 Number of game members: 4
+      %h5 Number of game members: #{@game.users.count}
   .row
     .row
       .col-md-5
-        %label{class:"game-list-title"} Rules
-        = link_to 'Add New Rule', edit_creator_game_path(@creator, @game), class: "btn btn-success pull-right", style: "width:127px;"
+        %label{class:"title-h3"} Rules
+        %button{class: "btn btn-sm btn-success pull-right", style: "width:127px;", data: {toggle:"modal", target:"#RuleModal"}} Add New Rule
       .col-md-6.col-md-offset-1
-        %label{class:"game-list-title"} Leaderboard
+        %label{class:"title-h3"} Leaderboard
 
     .row
       .col-md-5
-        %div{id: "rules"}
-          %table{class: "table table-hover table-condensed table-striped"}
-            -# - @games.each do |game|
-            - 7.times do
-              %tr
-                %td
-                  -# = game.name
-                  Rule name
+        - unless @game.rules.nil?
+          %div{id: "rules"}
+            %table{class: "table table-hover table-condensed table-striped"}
+              - @game.rules.each do |rule|
+                - unless rule.id.nil?
+                  %tr
+                    %td
+                      = rule.description
+                    %td
+                      %span{class: "#{rule_priority(rule)}"}
+                        = rule.priority.humanize
+                    %td
+                      -# %a{data: {toggle:"modal", target:"#RuleEditModal"}}
+                      = link_to edit_creator_game_rule_path(@creator, @game, rule)do
+                        %i{class: "fa fa-pencil"}
+                    %td
+                      %i{class: "fa fa-trash-o pull-right"}
+        - else
+          No Rules created yet!
 
       .col-md-6.col-md-offset-1
-        %div{id: "rules"}
-          %table{class: "table table-hover table-condensed table-striped"}
-            -# - @games.each do |game|
-            - 7.times do
-              %tr
-                %td
-                  -# = game.name
-                  User name
+        - if @game.users.any?
+          %div{id: "rules"}
+            %table{class: "table table-hover table-condensed table-striped"}
+              - @game.users.each do |user|
+                %tr
+                  %td
+                    = user.name
+                  %td
+                    .title-h4
+                      %span{class: "label label-info pull-right"}
+                        Brens
+                  %td
+                    .title-h4
+                      %span{class: "label label-success pull-right"}
+                        1000 points
+        - else
+          No users have joined the game yet!
+          Begin inviting users
   .col-md-3.col-md-offset-4{style:"margin-top:-80px;"}
     = link_to 'Back to Profile', creator_path, class: "btn btn-default btn-block"
 
+#inviteModal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4.modal-title Invite user to your #{@game.name} game
+      .modal-body
+        = form_for :user, :as => @user, :url => invitation_path(@user), :html => {:method => :post, :class => "form-horizontal"} do |f|
+          - @user.class.invite_key_fields.each do |field|
+            = f.hidden_field :game_id, value: @game.id
+            .form-group
+              = f.label field, "User Email", class: "control-label col-sm-4"
+              .col-md-6
+                = f.text_field field, placeholder: "User Email", class: "form-control"
+          .form-group
+            .col-md-offset-4
+              = f.submit "Send Invitation", class:"btn btn-success"
+              %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+#RuleModal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4.modal-title Add new rule to your #{@game.name} game
+      .modal-body
+        = form_for @rule, url: creator_game_rules_path(@creator, @game), :html => {:class => "form-horizontal"} do |f|
+          .form-group
+            .col-md-12
+              = f.text_field :description, placeholder: "Rule Description", class: "form-control"
+          .form-group
+            .col-md-12
+              .col-md-3
+                = f.label :priority, "Rule Priority"
+              .radio
+                .col-md-2
+                  %label{value: :high}
+                    = f.radio_button :priority,:high
+                    High
+                .col-md-2
+                  %label{value: :normal}
+                    = f.radio_button :priority,:normal
+                    Normal
+                .col-md-2
+                  %label{value: :low}
+                    = f.radio_button :priority,:low
+                    Low
+          .form-group
+            .col-md-offset-4
+              = f.submit "Add Rule", class:"btn btn-success"
+              %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+
+-# #RuleEditModal.modal.fade
+-#   .modal-dialog
+-#     .modal-content
+-#       .modal-header
+-#         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+-#         %h4.modal-title Add new rule to your #{@game.name} game
+-#       .modal-body
+-#         = form_for @selected_rule, url: creator_game_rule_path(@creator, @game), :html => {:method => :put, :class => "form-horizontal"} do |f|
+-#           .form-group
+-#             .col-md-12
+-#               = f.text_field :description, placeholder: "Rule Description", class: "form-control"
+-#           .form-group
+-#             .col-md-12
+-#               .col-md-3
+-#                 = f.label :priority, "Rule Priority"
+-#               .radio
+-#                 .col-md-2
+-#                   %label{value: :high}
+-#                     = f.radio_button :priority,:high
+-#                     High
+-#                 .col-md-2
+-#                   %label{value: :normal}
+-#                     = f.radio_button :priority,:normal
+-#                     Normal
+-#                 .col-md-2
+-#                   %label{value: :low}
+-#                     = f.radio_button :priority,:low
+-#                     Low
+-#           .form-group
+-#             .col-md-offset-4
+-#               = f.submit "Add Rule", class:"btn btn-success"
+-#               %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close

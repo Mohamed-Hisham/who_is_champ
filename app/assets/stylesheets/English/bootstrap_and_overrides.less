@@ -32,6 +32,11 @@
 
 body{
   padding-top: 70px;
+  background: url("/assets/bg.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .footer {
   background-color: #094D40;
@@ -62,6 +67,7 @@ body{
   border-radius: @border-radius-base;
   white-space: nowrap;
   position: relative;
+  background: #ffffff;
 }
 
 .profile-info-user{
@@ -70,6 +76,7 @@ body{
   border-radius: @border-radius-base;
   white-space: nowrap;
   position: relative;
+  background: #ffffff;
 }
 
 #rules{
@@ -85,6 +92,9 @@ body{
 .title-h3{
   font-size: @font-size-h3;
 }
+.title-h4{
+  font-size: @font-size-h5;
+}
 .ribbon-div{
   text-align: center;
 }
@@ -94,4 +104,9 @@ body{
   &:hover,
   &:focus {
     opacity: 0.61;}
+}
+.logo{
+  width: 50px;
+  height: 50px;
+  margin-top: 2px;
 }

@@ -11,11 +11,11 @@
         %h3 #{@creator.name}
       .row
         .col-md-3
-          %h4 #{@games.count} Games
+          %h4 #{pluralize(@games.count, "Game")}
         .col-md-3
-          %h4 #{@games.count} Rules
+          %h4 #{pluralize(@rules_count, "Rule")}
         .col-md-5
-          %h4 #{@games.count} Game Members
+          %h4 #{pluralize(@users_count, "Game Member")}
   %br
   .row
     .col-md-8
@@ -27,16 +27,13 @@
         %div{id: "rules"}
           %table{class: "table table-hover table-condensed table-striped"}
             - if @games.any?
-              -# - @games.each do |game|
-              - 7.times do
+              - @games.each do |game|
                 %tr
                   %td
-                    -# = game.name
-                    = @games.first.name
+                    = game.name
                   %td
-                    7 Rules
+                    #{pluralize(game.rules.count, "Rule")}
                   %td
-                    -# = link_to "View Game", creator_game_path(@creator, game), class: "btn btn-info pull-left"
-                    = link_to "View Game", creator_game_path(@creator, @games.first), class: "btn btn-primary pull-left"
+                    = link_to "View Game", creator_game_path(@creator, game), class: "btn btn-info pull-left"
             - else
               %h4 No games created yet!

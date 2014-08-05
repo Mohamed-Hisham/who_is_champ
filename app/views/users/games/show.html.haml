@@ -1,0 +1,34 @@
+.container
+  .row
+    .col-md-3
+      %label{class: "title-h3"} #{@game.name}
+  .row
+    .col-md-6
+      %h5 Game Description:
+      .well.well-sm
+        = @game.description
+  .row
+    .col-md-6
+      %h5 Number of Rules: 10
+      -# = @rules.count
+  .row
+    .col-md-6
+      %h5 Number of game members: #{@game.users.count}
+  .row
+    .row
+      -# .col-md-5
+      -#   %label{class:"game-list-title"} Rules
+
+      .col-md-6
+        %label{class:"game-list-title"} Leaderboard
+        %div{id: "rules"}
+          %table{class: "table table-hover table-condensed table-striped"}
+            -# - @games.each do |game|
+            - 7.times do
+              %tr
+                %td
+                  -# = game.name
+                  User
+  .row
+    .col-md-3.col-md-offset-4{style:"margin-top:-50px;"}
+      = link_to 'Back to Profile', user_path(@user), class: "btn btn-default btn-block"

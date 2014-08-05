@@ -1,16 +1,24 @@
-%h2 User Sign in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    %div
-      = f.check_box :remember_me
-      = f.label :remember_me
-  %div= f.submit "Sign in"
-= render "users/shared/links"
+.container-fluid
+  .col-md-offset-1
+    %h3 User Sign in
+  .col-md-offset-2
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"}) do |f|
+      .form-group
+        = f.label :email, class:"col-sm-2 control-label"
+        .col-sm-4
+          = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"
+      .form-group
+        = f.label :password, class:"col-sm-2 control-label"
+        .col-sm-4
+          = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"
+      - if devise_mapping.rememberable?
+        .form-group
+          .col-md-offset-2
+            .checkbox
+              = f.label :remember_me
+              = f.check_box :remember_me
+      .form-group
+        .col-md-offset-2.col-md-4
+          = f.submit "Sign in", class: "btn btn-success btn-block"
+      .col-md-offset-2.col-sm-4
+        = render "users/shared/links"

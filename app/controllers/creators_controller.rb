@@ -4,6 +4,14 @@ class CreatorsController < ApplicationController
 
   def show
     @games = @creator.games.all.to_a
+    count = 0
+    ucount = 0
+    @games.each do |g|
+      count+= g.rules.count
+      ucount+= g.users.count
+    end
+    @rules_count = count
+    @users_count = ucount
   end
 
   def edit

@@ -6,6 +6,8 @@ class Creators::GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @user = User.new
+    @rule = @game.rules.new
   end
 
   # GET /games/new
@@ -52,7 +54,7 @@ class Creators::GamesController < ApplicationController
   def destroy
     @game.destroy
     respond_to do |format|
-      format.html { redirect_to games_url, notice: 'Game was successfully destroyed.' }
+      format.html { redirect_to creator_path(@creator), notice: 'Game was successfully deleted.' }
       format.json { head :no_content }
     end
   end

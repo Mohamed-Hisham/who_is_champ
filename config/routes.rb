@@ -8,18 +8,15 @@ Rails.application.routes.draw do
 
   resources :admins, only: :show
   resources :creators, only: [:show, :edit, :update] do
-    resources :games, :controller => "creators/games", except: :index
+    resources :games, :controller => "creators/games", except: :index do
+      resources :rules, :controller => "creators/rules", except: :show
+    end
   end
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    resources :games, :controller => "users/games", only: :show
+  end
 
-  # namespace :admins do
-
-  # end
-
-  # namespace :creators do
-
-  # end
-
+  get 'about'=> "home#about"
   root to: "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

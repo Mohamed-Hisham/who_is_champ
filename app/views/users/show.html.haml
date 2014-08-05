@@ -16,3 +16,47 @@
         .col-md-5
           -# %h4 #{@games.count} Completed Rules
           %h4 20 Completed Rules
+
+  .row
+    .col-md-5
+      .row
+        %label{class: "game-list-title"} Games #{@game.name}
+        = link_to "View Game", user_game_path(@user, @game), class: "pull-right btn btn-info", style: "margin-top:5px;margin-right:65px;"
+      .row
+        %label{class: "game-list-title"} Leaderboard position: 2
+      %br
+      .row
+        %div{id: "rules", style: "height:270px;"}
+          %table{class: "table table-hover table-condensed table-striped"}
+            - 7.times do
+              %tr
+                %td
+                  Rule 1
+                %td
+                  = link_to "Mark Complete", user_game_path(@user, @game), class: "btn btn-sm btn-success pull-left"
+
+    .col-md-6.col-md-offset-1
+      .row
+        %label{class: "game-list-title"} Game Badges
+      %br
+      .row
+        .col-md-3
+          Badge 1
+        .col-md-3
+          Badge 1
+        .col-md-3
+          Badge 1
+      .row
+        .col-md-3
+          Badge 1
+        .col-md-3
+          Badge 1
+        .col-md-3
+          Badge 1
+      .row
+        .col-md-3
+          Badge 1
+        .col-md-3
+          Badge 1
+        .col-md-3
+          Badge 1
