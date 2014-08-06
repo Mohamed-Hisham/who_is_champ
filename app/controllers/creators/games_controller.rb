@@ -8,6 +8,7 @@ class Creators::GamesController < ApplicationController
   def show
     @user = User.new
     @rule = @game.rules.new
+    @users = @game.users.order(pts: :desc)
   end
 
   # GET /games/new

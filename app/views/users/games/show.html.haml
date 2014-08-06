@@ -9,8 +9,7 @@
         = @game.description
   .row
     .col-md-6
-      %h5 Number of Rules: 10
-      -# = @rules.count
+      %h5 Number of Rules: #{@rules.count}
   .row
     .col-md-6
       %h5 Number of game members: #{@game.users.count}
@@ -23,12 +22,18 @@
         %label{class:"game-list-title"} Leaderboard
         %div{id: "rules"}
           %table{class: "table table-hover table-condensed table-striped"}
-            -# - @games.each do |game|
-            - 7.times do
+            - @users.each do |user|
               %tr
                 %td
-                  -# = game.name
-                  User
+                  = user.name
+                %td
+                  .title-h4
+                    %span{class: "label label-info pull-right"}
+                      Brens
+                %td
+                  .title-h4
+                    %span{class: "label label-success pull-right"}
+                      #{user.pts} points
   .row
     .col-md-3.col-md-offset-4{style:"margin-top:-50px;"}
       = link_to 'Back to Profile', user_path(@user), class: "btn btn-default btn-block"

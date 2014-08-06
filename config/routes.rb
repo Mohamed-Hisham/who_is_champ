@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update] do
     resources :games, :controller => "users/games", only: :show
+    resources :rules, :controller => "users/rules" do
+      member do
+        post 'mark_complete', as: :rule_complete
+      end
+    end
   end
 
   get 'about'=> "home#about"

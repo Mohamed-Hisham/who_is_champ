@@ -6,6 +6,8 @@ class Users::GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    @rules = @game.rules
+    @users = @game.users.order(pts: :desc)
   end
 
   private

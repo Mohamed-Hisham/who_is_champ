@@ -1,6 +1,6 @@
 .container
   .row.profile-info-user
-    .ribbon.ribbon-blue.ribbon-large.ribbon-div
+    .ribbon.ribbon-blue.ribbon-large.ribbon-div.pull-right
       .banner
         .text
           User
@@ -8,14 +8,22 @@
       = image_tag @user.avatar.url , class: "img-circle", :style => "width:140px;height:140px;"
     .col-md-8
       .row
-        %h3 #{@user.name}
+        .col-md-3
+          %h2 #{@user.name}
+        .col-md-5{style: "margin-top:20px;"}
+          %span{class: "label label-default title-h4"}
+            Rank Title
+        .col-md-4{style: "margin-top:20px;"}
+          %span{class: "label label-success title-h4"}
+            #{@user.pts} points
+
       .row
         .col-md-3
-          -# %h4 #{@games.count} Badges
-          %h4 4 Badges
-        .col-md-5
-          -# %h4 #{@games.count} Completed Rules
-          %h4 20 Completed Rules
+          %label{class: "game-list-title"} #{pluralize(4, "Badge")}
+        .col-md-1
+          %label{class: "game-list-title"} #{pluralize(@comp_rules, "Completed Rule")}
+        .col-md-4
+        %label{class: "game-list-title"} Leaderboard position: #{@position.ordinalize}
 
   .row
     .col-md-5
@@ -23,17 +31,27 @@
         %label{class: "game-list-title"} Games #{@game.name}
         = link_to "View Game", user_game_path(@user, @game), class: "pull-right btn btn-info", style: "margin-top:5px;margin-right:65px;"
       .row
-        %label{class: "game-list-title"} Leaderboard position: 2
-      %br
+      .row
+        %label{class:"game-list-title"} Rules
       .row
         %div{id: "rules", style: "height:270px;"}
           %table{class: "table table-hover table-condensed table-striped"}
-            - 7.times do
+            - @rules.each do |rule|
               %tr
                 %td
-                  Rule 1
+                  = rule.description
                 %td
-                  = link_to "Mark Complete", user_game_path(@user, @game), class: "btn btn-sm btn-success pull-left"
+                  %span{class: "#{rule_priority(rule)}"}
+                    = rule.priority.humanize
+                %td
+                  - unless check_status(@user, rule)
+                    = form_for rule, :url => rule_complete_user_rule_path(@user, rule), :html => {:method => :post} do |f|
+                      = f.button type: "submit", class: "mark" do
+                        %i{class: "#{rule_status(@user,rule)}"}
+                        #{rule_status_text(@user,rule)}
+                  - else
+                    %i{class: "#{rule_status(@user,rule)}"}
+                    #{rule_status_text(@user,rule)}
 
     .col-md-6.col-md-offset-1
       .row
@@ -41,22 +59,28 @@
       %br
       .row
         .col-md-3
-          Badge 1
+          = image_tag 'badge.png', class: "user-badge"
         .col-md-3
-          Badge 1
+          = image_tag  'badge.png', class: "user-badge"
         .col-md-3
-          Badge 1
+          = image_tag  'badge.png', class: "user-badge"
+        .col-md-3
+          = image_tag  'badge.png', class: "user-badge"
       .row
         .col-md-3
-          Badge 1
+          = image_tag  'badge.png', class: "user-badge"
         .col-md-3
-          Badge 1
+          = image_tag  'badge.png', class: "user-badge"
         .col-md-3
-          Badge 1
+          = image_tag  'badge.png', class: "user-badge"
+        .col-md-3
+          = image_tag  'badge.png', class: "user-badge"
       .row
         .col-md-3
-          Badge 1
+          = image_tag  'badge.png', class: "user-badge"
         .col-md-3
-          Badge 1
+          = image_tag  'badge.png', class: "user-badge"
         .col-md-3
-          Badge 1
+          = image_tag  'badge.png', class: "user-badge"
+        .col-md-3
+          = image_tag  'badge.png', class: "user-badge"

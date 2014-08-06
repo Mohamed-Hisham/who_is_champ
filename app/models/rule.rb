@@ -8,4 +8,7 @@ class Rule < ActiveRecord::Base
 
   # Associations
   belongs_to :game
+  has_many :user_rules
+  has_many :users, through: :user_rules
+
 end

@@ -40,10 +40,11 @@
                         = rule.priority.humanize
                     %td
                       -# %a{data: {toggle:"modal", target:"#RuleEditModal"}}
-                      = link_to edit_creator_game_rule_path(@creator, @game, rule)do
+                      = link_to edit_creator_game_rule_path(@creator, @game, rule) do
                         %i{class: "fa fa-pencil"}
                     %td
-                      %i{class: "fa fa-trash-o pull-right"}
+                      = link_to creator_game_rule_path(@creator, @game, rule), :method => :delete, :data => { :confirm => "Delete #{rule.description.truncate(40)} Rule" } do
+                        %i{class: "fa fa-trash-o pull-right", style: "color:red;"}
         - else
           No Rules created yet!
 
@@ -51,7 +52,7 @@
         - if @game.users.any?
           %div{id: "rules"}
             %table{class: "table table-hover table-condensed table-striped"}
-              - @game.users.each do |user|
+              - @users.each do |user|
                 %tr
                   %td
                     = user.name
@@ -62,7 +63,7 @@
                   %td
                     .title-h4
                       %span{class: "label label-success pull-right"}
-                        1000 points
+                        #{user.pts} points
         - else
           No users have joined the game yet!
           Begin inviting users

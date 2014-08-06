@@ -1,1 +1,39 @@
+-# = javascript_include_tag "http://vjs.zencdn.net/4.6/video.js"
+-# = javascript_include_tag "vjs.youtube.js"
+-# = javascript_include_tag "videojs.markers.js"
+-# = stylesheet_link_tag "http://vjs.zencdn.net/4.6/video-js.css", rel: "stylesheet"
+-# = stylesheet_link_tag "videojs.markers.css", rel: "stylesheet"
+-# = stylesheet_link_tag "videojs-overlay.css", rel: "stylesheet"
+
+-# :javascript
+-#   videojs.options.flash.swf = "video-js.swf";
 %h2 About The Game
+
+-# %video#my-video.video-js.vjs-default-skin.vjs-big-play-centered{controls: "", "data-setup" => "{ \"techOrder\": [\"youtube\"], \"src\": \"https://www.youtube.com/watch?v=RoYvr-KXvLs\" }", height: "360", preload: "auto", src: "", width: "640"}
+
+-# :javascript
+-#   // var may_video = videojs('my-video');
+
+-#   videojs('my-video').ready(function(){
+
+-#     //load the marker plugin
+-#     this.markers({
+-#       setting: {
+-#         //set style, markertip, and breakOverlay
+-#         markerStyle: {
+-#           'width':'8px',
+-#           'background-color': 'orange'
+-#         },
+-#         markerTip:{
+-#           display: true,
+-#           default_text: "",
+-#           show_colon: false
+-#         },
+
+-#         forceInitialization: true // doesn't wait for loadedmetadata event
+-#       },
+-#       marker_breaks:[60.5, 600, 750, 900],
+-#       marker_text  :['Question 1','Question 2','Question 3','Question 4']
+-#     });
+
+-#   })

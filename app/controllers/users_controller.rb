@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 
   def show
     @game = @user.game
+    @rules = @game.rules.joins('LEFT OUTER JOIN user_rules ON user_rules.rule_id = rule_id').order('user_rules.status DESC').distinct
+    @comp_rules = UserRule.where(user_id: @user).all.count
+    @position = @game.users.order(pts: :desc).all.to_a.index(@user) + 1
   end
 
   def edit
