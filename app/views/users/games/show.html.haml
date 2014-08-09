@@ -1,39 +1,47 @@
 .container
   .row
-    .col-md-3
-      %label{class: "title-h3"} #{@game.name}
-  .row
-    .col-md-6
-      %h5 Game Description:
-      .well.well-sm
-        = @game.description
-  .row
-    .col-md-6
-      %h5 Number of Rules: #{@rules.count}
-  .row
-    .col-md-6
-      %h5 Number of game members: #{@game.users.count}
-  .row
-    .row
-      -# .col-md-5
-      -#   %label{class:"game-list-title"} Rules
-
+    .col-md-12
       .col-md-6
-        %label{class:"game-list-title"} Leaderboard
-        %div{id: "rules"}
-          %table{class: "table table-hover table-condensed table-striped"}
-            - @users.each do |user|
-              %tr
-                %td
-                  = user.name
-                %td
-                  .title-h4
-                    %span{class: "label label-info pull-right"}
-                      Brens
-                %td
-                  .title-h4
-                    %span{class: "label label-success pull-right"}
-                      #{user.pts} points
+        .row
+          %label{class: "title-h3"} #{@game.name}
+        .row
+          %h5 Game Description:
+          .well.well-sm
+            = @game.description
+        .row
+          %h5 Number of Rules: #{@rules.count}
+        .row
+          %h5 Number of game members: #{@game.users.count}
+      .col-md-6
+        .col-md-12.leaderboard-upper
+          %label{class:"game-list-title", style: "color:white;"} Leaderboard
+          - @top_users.each do |user|
+            %div
+              = user.name
+              .title-h4
+                %span{class: "label label-info"}
+                  Brens
+              .title-h4
+                %span{class: "label label-success"}
+                  #{user.pts} points
+
+        .col-md-12.leaderboard-col-left
+          .leaderboard-col-right
+            .col-md-10{style: "margin-top:0px;margin-left:30px;"}
+              %table{class: "table table-hover table-condensed table-striped"}
+                - @users.each do |user|
+                  %tr
+                    %td
+                      = user.name
+                    %td
+                      .title-h4
+                        %span{class: "label label-info pull-right"}
+                          Brens
+                    %td
+                      .title-h4
+                        %span{class: "label label-success pull-right"}
+                          #{user.pts} points
+
   .row
-    .col-md-3.col-md-offset-4{style:"margin-top:-50px;"}
+    .col-md-4.col-md-offset-3
       = link_to 'Back to Profile', user_path(@user), class: "btn btn-default btn-block"

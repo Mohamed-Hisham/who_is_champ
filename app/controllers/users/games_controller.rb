@@ -7,7 +7,8 @@ class Users::GamesController < ApplicationController
   # GET /games/1.json
   def show
     @rules = @game.rules
-    @users = @game.users.order(pts: :desc)
+    @top_users = @game.users.order(pts: :desc).take(3)
+    @users = @game.users.where.not(id: @top_users).order(pts: :desc)
   end
 
   private

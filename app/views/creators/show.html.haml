@@ -1,21 +1,23 @@
 .container
   .row.profile-info
-    .ribbon.ribbon-orange.ribbon-large.ribbon-div
-      .banner
-        .text
-          Creator
-    .col-md-2
-      = image_tag @creator.avatar.url , class: "img-circle", :style => "width:140px;height:140px;"
-    .col-md-8
-      .row
-        %h3 #{@creator.name}
-      .row
-        .col-md-3
-          %h4 #{pluralize(@games.count, "Game")}
-        .col-md-3
-          %h4 #{pluralize(@rules_count, "Rule")}
-        .col-md-5
-          %h4 #{pluralize(@users_count, "Game Member")}
+    .col-md-offset-1
+      .ribbon.ribbon-orange.ribbon-large.ribbon-div{style: "right:-30px;"}
+        .banner
+          .text
+            Creator
+      %div{style: "background-color: rgba(255, 255, 255);height:168px;"}
+        .col-md-1
+          = image_tag @creator.avatar.url , class: "img-circle profile-image"
+        .col-md-8
+          .row{style: "padding-top:10px;"}
+            %h2{style: "margin-left:10px;"} #{@creator.name}
+          .row
+            .col-md-3
+              %label{class: "title-h5"} #{pluralize(@games.count, "Game")}
+            .col-md-3
+              %h4 #{pluralize(@rules_count, "Rule")}
+            .col-md-5
+              %h4 #{pluralize(@users_count, "Game Member")}
   %br
   .row
     .col-md-8

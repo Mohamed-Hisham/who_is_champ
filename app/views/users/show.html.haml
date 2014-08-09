@@ -1,31 +1,33 @@
 .container
   .row.profile-info-user
-    .ribbon.ribbon-blue.ribbon-large.ribbon-div.pull-right
-      .banner
-        .text
-          User
-    .col-md-2
-      = image_tag @user.avatar.url , class: "img-circle", :style => "width:140px;height:140px;"
-    .col-md-8
-      .row
-        .col-md-3
-          %h2 #{@user.name}
-        .col-md-5{style: "margin-top:20px;"}
-          %span{class: "label label-default title-h4"}
-            Rank Title
-        .col-md-4{style: "margin-top:20px;"}
-          %span{class: "label label-success title-h4"}
-            #{@user.pts} points
-
-      .row
-        .col-md-3
-          %label{class: "game-list-title"} #{pluralize(4, "Badge")}
+    .col-md-offset-1
+      .ribbon.ribbon-blue.ribbon-large.ribbon-div{style: "right:-30px;"}
+        .banner
+          .text
+            User
+      %div{style: "background-color: rgba(255, 255, 255);height:168px;"}
         .col-md-1
-          %label{class: "game-list-title"} #{pluralize(@comp_rules, "Completed Rule")}
-        .col-md-4
-        %label{class: "game-list-title"} Leaderboard position: #{@position.ordinalize}
+          = image_tag @user.avatar.url , class: "img-circle profile-image"
+        .col-md-8
+          .row{style: "padding-top:10px;"}
+            .col-md-3
+              %h2 #{@user.name}
+            .col-md-5{style: "margin-top:20px;"}
+              %span{class: "label label-default title-h4"}
+                #{@user.rank}
+            .col-md-4{style: "margin-top:20px;"}
+              %span{class: "label label-success title-h4"}
+                #{@user.pts} points
 
-  .row
+          .row
+            .col-md-3
+              %label{class: "game-list-title"} #{pluralize(4, "Badge")}
+            .col-md-4
+              %label{class: "game-list-title"} #{pluralize(@comp_rules, "Completed Rule")}
+            .col-md-4
+            %label{class: "game-list-title"} Leaderboard position: #{@position.ordinalize}
+
+  .row{style: "margin-top:10px;"}
     .col-md-5
       .row
         %label{class: "game-list-title"} Games #{@game.name}

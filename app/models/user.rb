@@ -22,4 +22,22 @@ class User < ActiveRecord::Base
   def update_points(new_points)
     self.update_attribute(:pts, new_points)
   end
+
+  def set_starter_rank
+    self.update_attribute(:rank, self.game.starter_rank)
+  end
+
+  def check_rank
+    if pts >= self.game.pts_per_rule * 4
+      self.set_rank(self.game.expert_rank)
+    elsif pts >= self.game.pts_per_rule * 2
+      self.set_rank(self.game.normal_rank)
+    elsif
+      self.set_rank(self.game.starter_rank)
+    end
+  end
+
+  def set_rank(rank)
+    self.update_attribute(:rank, rank)
+  end
 end

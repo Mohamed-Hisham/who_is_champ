@@ -8,8 +8,9 @@ class Users::RulesController < ApplicationController
     respond_to do |format|
       if @user_rule_entry.update_status(:complete)
         @game = Game.find_by(@rule.game_id)
-        user_points = @user.pts + @game.pts_per_rule
+        user_points = @user.pts + (@game.pts_per_rule * @rule.priority_points)
         @user.update_points(user_points)
+        @user.check_rank
         format.html { redirect_to @user, notice: "Rule \"#{@rule.description.truncate(40)}\" was successfully marked as complete." }
         format.json { head :no_content }
       else

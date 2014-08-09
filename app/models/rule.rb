@@ -11,4 +11,16 @@ class Rule < ActiveRecord::Base
   has_many :user_rules
   has_many :users, through: :user_rules
 
+  # Functions
+  def priority_points
+    if self.priority == "normal"
+      extra_priority_points = 1.25
+    elsif self.priority == "high"
+      extra_priority_points = 1.5
+    elsif self.priority == "low"
+      extra_priority_points = 1
+    end
+    return extra_priority_points
+  end
+
 end

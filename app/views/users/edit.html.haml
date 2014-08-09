@@ -1,17 +1,35 @@
 .container
   %h3 Edit Profile
+  .col-md-offset-2
+    = form_for @user do |user|
+      = user.error_messages class: 'alert alert-error'
 
-  = form_for @user do |user|
-    = user.error_messages class: 'alert alert-error'
+      .col-md-6
+        .form-group
+          = user.label :name, class: "col-sm-6 control-label"
+          = user.text_field :name, placeholder: "Name", class: "form-control"
 
-    %div
-      = user.label :name
-      %br/
-      = user.text_field :name, placeholder: "Name"
-    %div
-      = user.label "Change your avatar"
-      %br/
-      = image_tag @user.avatar.url, class:"img-thumbnail", :style => "width:200px;height:200px;"
-      = user.file_field :avatar
-    %div
-      = user.submit "Save changes", class: "btn btn-success"
+        .form-group
+          .row
+            = user.label "Upload your Avatar", class: "col-sm-5 control-label", style: "margin-top:-15px;"
+          .row
+            = image_tag @user.avatar.url, class: "preview img-thumbnail" , style: "width:150px;height:150px"
+          .row
+            .col-md-5
+              %span{class: "btn btn-primary btn-block btn-file"}
+                Upload
+                = user.file_field :avatar, id: "imgfile"
+        .form-group
+          = user.submit "Save changes", class: "btn btn-block btn-success"
+
+%footer
+  :javascript
+    $("#imgfile").change(function(){
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });

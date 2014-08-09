@@ -7,31 +7,35 @@
 
   - unless user_signed_in? || creator_signed_in?
     .row
-      .col-md-5.col-md-offset-1
-        %h3 Creator
+      .col-md-4.col-md-offset-1.login-wrap
+        %label{class: "title-h5"} Creator
         = form_for("creator", url: new_creator_session_path, html: {class: "form-horizontal"}) do |c|
           .form-group
-            .col-xs-6
+            .col-xs-12
               = c.text_field :email, placeholder: "Email Address", class: "form-control"
           .form-group
-            .col-xs-6
+            .col-xs-12
               = c.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
           .form-group
-            .col-xs-6
+            .col-xs-12
               = c.submit "Sign in", class: "btn btn-warning btn-block"
-      .col-md-2
-        = image_tag 'logo.png', class: "img-circle img-responsive", style:"width:170px;margin-top:50px;margin-left:-120px;"
-      .col-md-4
-        %h3 User
+
+        .col-md-6{style: "margin-left:-15px;width:415px;"}
+          = link_to "Sign up", new_creator_registration_path, class: "btn btn-primary btn-block"
+
+      -# .col-md-2
+      -#   = image_tag 'logo.png', class: "img-circle img-responsive", style:"width:170px;margin-top:50px;margin-left:-120px;"
+      .col-md-4.col-md-offset-2.login-wrap
+        %label{class: "title-5"} User
         = form_for("user", url: new_user_session_path, html: {class: "form-horizontal"}) do |c|
           .form-group
-            .col-xs-8
+            .col-xs-12
               = c.text_field :email, placeholder: "Email Address", class: "form-control"
           .form-group
-            .col-xs-8
+            .col-xs-12
               = c.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
           .form-group
-            .col-xs-8
+            .col-xs-12
               = c.submit "Sign in", class: "btn btn-info btn-block"
 
   - else
