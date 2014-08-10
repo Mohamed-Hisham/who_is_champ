@@ -25,7 +25,7 @@
                       = form_for rule, :url => rule_complete_user_rule_path(@user, rule), :html => {:method => :post} do |f|
                         = f.hidden_field :game_id, value: @game.id
 
-                        = f.button type: "submit", class: "mark" do
+                        = f.button type: "submit", class: "mark", style: "color:#d35400;" do
                           %i{class: "fa fa-square-o"}
                           Approve
           - else

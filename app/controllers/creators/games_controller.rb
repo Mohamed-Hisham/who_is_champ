@@ -9,7 +9,6 @@ class Creators::GamesController < ApplicationController
     @user = User.new
     @rule = @game.rules.new
     @users = @game.users.order(pts: :desc)
-    # @pending_rules = UserRule.joins(:game).where(game_id: @game.id, status: UserRule.statuses[:pending]).order(:updated_at).all.to_a
     @pending_rules = @game.rules.joins(:user_rules).where(user_rules: {status: UserRule.statuses[:pending]}).order(:updated_at).all.to_a
   end
 
