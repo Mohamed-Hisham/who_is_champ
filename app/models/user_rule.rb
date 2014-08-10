@@ -4,6 +4,7 @@ class UserRule < ActiveRecord::Base
   # Associations
   belongs_to :user
   belongs_to :rule
+  belongs_to :game
 
 
   # Functions

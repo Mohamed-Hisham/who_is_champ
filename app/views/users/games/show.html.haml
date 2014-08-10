@@ -1,7 +1,7 @@
 .container
   .row
     .col-md-12
-      .col-md-6
+      .col-md-5
         .row
           %label{class: "title-h3"} #{@game.name}
         .row
@@ -12,7 +12,21 @@
           %h5 Number of Rules: #{@rules.count}
         .row
           %h5 Number of game members: #{@game.users.count}
-      .col-md-6
+        -# %br
+        -# .row
+        -#   %h4 Completed Rules
+        -#   %div{id: "rules", style: "height:270px;"}
+        -#     %table{class: "table table-hover table-condensed table-striped"}
+        -#       - @completed_rules.each do |rule|
+        -#         %tr
+        -#           %td
+        -#             %i{class: "fa fa-check-square-o"}
+        -#           %td
+        -#             = rule.description
+        -#           %td
+        -#             %span{class: "#{rule_priority(rule)}"}
+        -#               = rule.priority.humanize
+      .col-md-6.col-md-offset-1
         .col-md-12.leaderboard-upper
           %label{class:"game-list-title", style: "color:white;"} Leaderboard
           - @top_users.each do |user|
@@ -20,7 +34,7 @@
               = user.name
               .title-h4
                 %span{class: "label label-info"}
-                  Brens
+                  = user.rank
               .title-h4
                 %span{class: "label label-success"}
                   #{user.pts} points
@@ -36,7 +50,7 @@
                     %td
                       .title-h4
                         %span{class: "label label-info pull-right"}
-                          Brens
+                          = user.rank
                     %td
                       .title-h4
                         %span{class: "label label-success pull-right"}

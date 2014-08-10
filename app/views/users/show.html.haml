@@ -47,7 +47,7 @@
                     = rule.priority.humanize
                 %td
                   - unless check_status(@user, rule)
-                    = form_for rule, :url => rule_complete_user_rule_path(@user, rule), :html => {:method => :post} do |f|
+                    = form_for rule, :url => rule_pending_user_rule_path(@user, rule), :html => {:method => :post} do |f|
                       = f.button type: "submit", class: "mark" do
                         %i{class: "#{rule_status(@user,rule)}"}
                         #{rule_status_text(@user,rule)}
@@ -58,26 +58,29 @@
     .col-md-6.col-md-offset-1
       .row
         %label{class: "game-list-title"} Game Badges
-      %br
-      .row
+      .row{id: "rules", style: "height:385px;text-align:center;"}
         .col-md-3
-          = image_tag 'badge.png', class: "user-badge"
+          = image_tag '3ambadge.png', class: "user-badge"
+          badge name
+        .col-md-3
+          = image_tag  'signins-1.png', class: "user-badge"
+          badge name
+        .col-md-3
+          = image_tag  'signins-2.png', class: "user-badge"
+          badge name
+        .col-md-3
+          = image_tag  'signins-3.png', class: "user-badge"
+          badge name
+        .col-md-3
+          = image_tag  'badge.png', class: "user-badge"
+        .col-md-3
+          = image_tag  'badge.png', class: "user-badge"
         .col-md-3
           = image_tag  'badge.png', class: "user-badge"
         .col-md-3
           = image_tag  'badge.png', class: "user-badge"
         .col-md-3
           = image_tag  'badge.png', class: "user-badge"
-      .row
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
-      .row
         .col-md-3
           = image_tag  'badge.png', class: "user-badge"
         .col-md-3

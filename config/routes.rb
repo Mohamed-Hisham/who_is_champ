@@ -16,7 +16,8 @@ Rails.application.routes.draw do
     resources :games, :controller => "users/games", only: :show
     resources :rules, :controller => "users/rules" do
       member do
-        post 'mark_complete', as: :rule_complete
+        post 'mark_pending', as: :rule_pending
+        post 'mark_complete', as: :rule_complete, :controller => "creators/rules"
       end
     end
   end

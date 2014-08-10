@@ -36,6 +36,9 @@ gem 'devise'
 gem 'devise_invitable', '~> 1.3.5'
 # gem 'devise-i18n', '~> 0.10.3'
 
+# Facebook
+gem "koala", "~> 1.10.0rc"
+
 # Uploads
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 3.7.0'

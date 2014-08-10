@@ -7,6 +7,7 @@ class Users::GamesController < ApplicationController
   # GET /games/1.json
   def show
     @rules = @game.rules
+    @completed_rules = @game.rules.joins(:user_rules).where(user_rules: {user_id: @user.id, status: UserRule.statuses[:complete]}).order(:updated_at).all.to_a
     @top_users = @game.users.order(pts: :desc).take(3)
     @users = @game.users.where.not(id: @top_users).order(pts: :desc)
   end

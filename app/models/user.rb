@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     self.update_attribute(:pts, new_points)
   end
 
+  def reset_points
+    self.update_attribute(:pts, 0)
+  end
+
   def set_starter_rank
     self.update_attribute(:rank, self.game.starter_rank)
   end
