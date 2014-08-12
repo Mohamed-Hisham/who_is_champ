@@ -1,0 +1,17 @@
+.row
+  %h2 All Users
+.row
+  %table{class: "table table-hover table-condensed table-striped login-wrap"}
+    %thead
+      %tr
+        %th User ID
+        %th User Name
+        %th
+    - @users.each do |user|
+      %tbody
+        %tr
+          %td
+            = user.id
+          %td
+            = user.name
+          %td= link_to 'Destroy', admin_user_path(@admin, user), :method => :delete, :data => { :confirm => 'Are you sure?' }

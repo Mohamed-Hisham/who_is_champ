@@ -1,14 +1,14 @@
 .container
   .row.profile-info-user
     .col-md-offset-1
-      .ribbon.ribbon-blue.ribbon-large.ribbon-div{style: "right:-30px;"}
+      .ribbon.ribbon-blue.ribbon-large.ribbon-div
         .banner
           .text
-            User
+            =t('views.home.user')
       %div{style: "background-color: rgba(255, 255, 255);height:168px;"}
         .col-md-1
           = image_tag @user.avatar.url , class: "img-circle profile-image"
-        .col-md-8
+        .col-md-10
           .row{style: "padding-top:10px;"}
             .col-md-3
               %h2 #{@user.name}
@@ -17,24 +17,25 @@
                 #{@user.rank}
             .col-md-4{style: "margin-top:20px;"}
               %span{class: "label label-success title-h4"}
-                #{@user.pts} points
-
+                #{@user.pts} #{t('views.home.points', count: @user.pts)}
           .row
+            .col-md-2
+              %label{class: "game-list-title"} #{@earned_badges} #{t('views.home.badges', count: @earned_badges)}
             .col-md-3
-              %label{class: "game-list-title"} #{pluralize(4, "Badge")}
+              %label{class: "game-list-title"} #{@pend_rules} #{t('views.user_profile.pending_rules_count', count: @pend_rules)}
+            .col-md-3
+              %label{class: "game-list-title"} #{@comp_rules} #{t('views.user_profile.comp_rules_count', count: @comp_rules)}
             .col-md-4
-              %label{class: "game-list-title"} #{pluralize(@comp_rules, "Completed Rule")}
-            .col-md-4
-            %label{class: "game-list-title"} Leaderboard position: #{@position.ordinalize}
+              %label{class: "game-list-title"} #{t('views.home.leaderboard_position')}: #{@position.ordinalize}
 
   .row{style: "margin-top:10px;"}
     .col-md-5
       .row
-        %label{class: "game-list-title"} Games #{@game.name}
-        = link_to "View Game", user_game_path(@user, @game), class: "pull-right btn btn-info", style: "margin-top:5px;margin-right:65px;"
+        %label{class: "game-list-title"} #{@game.name}
+        = link_to t('views.home.view_game'), user_game_path(@user, @game), class: "pull-right btn btn-info", style: "margin-top:5px;margin-right:65px;"
       .row
       .row
-        %label{class:"game-list-title"} Rules
+        %label{class:"game-list-title"} #{t('views.home.rules')}
       .row
         %div{id: "rules", style: "height:270px;"}
           %table{class: "table table-hover table-condensed table-striped"}
@@ -44,7 +45,7 @@
                   = rule.description
                 %td
                   %span{class: "#{rule_priority(rule)}"}
-                    = rule.priority.humanize
+                    #{rule_priority_text(rule)}
                 %td
                   - unless check_status(@user, rule)
                     = form_for rule, :url => rule_pending_user_rule_path(@user, rule), :html => {:method => :post} do |f|
@@ -52,40 +53,13 @@
                         %i{class: "#{rule_status(@user,rule)}"}
                         #{rule_status_text(@user,rule)}
                   - else
-                    %i{class: "#{rule_status(@user,rule)}"}
-                    #{rule_status_text(@user,rule)}
+                    %i{class: "#{rule_status(@user,rule)}", style: "#{rule_status_color}"}
+                    %label{style: "#{rule_status_color}"} #{rule_status_text(@user,rule)}
 
     .col-md-6.col-md-offset-1
       .row
-        %label{class: "game-list-title"} Game Badges
+        %label{class: "game-list-title"} #{t('views.home.competition_badges')}
       .row{id: "rules", style: "height:385px;text-align:center;"}
-        .col-md-3
-          = image_tag '3ambadge.png', class: "user-badge"
-          badge name
-        .col-md-3
-          = image_tag  'signins-1.png', class: "user-badge"
-          badge name
-        .col-md-3
-          = image_tag  'signins-2.png', class: "user-badge"
-          badge name
-        .col-md-3
-          = image_tag  'signins-3.png', class: "user-badge"
-          badge name
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
-        .col-md-3
-          = image_tag  'badge.png', class: "user-badge"
+        - @badges.each do |badge|
+          .col-md-3{title: "#{badge_name(badge)}", data: {toggle: "tooltip", placement: "top"}}
+            = image_tag badge.badge.url, class: "user-badge #{check_achieved(badge)}"

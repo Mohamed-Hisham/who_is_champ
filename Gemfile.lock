@@ -129,10 +129,10 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta_request (0.3.0)
-      callsite
-      rack-contrib
-      railties
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_magick (3.7.0)
@@ -244,10 +244,11 @@ DEPENDENCIES
   koala (~> 1.10.0rc)
   less-rails (~> 2.5.0)
   letter_opener (~> 1.2.0)
-  meta_request (~> 0.3.0)
+  meta_request (~> 0.3.4)
   mini_magick (~> 3.7.0)
   mysql2
   powder (~> 0.2.1)
+  pry (~> 0.10.0)
   pry-rails
   railroady
   rails (= 4.1.1)

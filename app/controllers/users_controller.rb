@@ -5,8 +5,12 @@ class UsersController < ApplicationController
   def show
     @game = @user.game
     @rules = @game.rules.joins('LEFT OUTER JOIN user_rules ON user_rules.rule_id = rule_id').order('user_rules.status DESC').distinct
-    @comp_rules = UserRule.where(user_id: @user).all.count
+    @pend_rules = UserRule.where(user_id: @user, status: UserRule.statuses[:pending]).all.count
+    @comp_rules = UserRule.where(user_id: @user, status: UserRule.statuses[:complete]).all.count
     @position = @game.users.order(pts: :desc).all.to_a.index(@user) + 1
+    @badges = Badge.joins('LEFT OUTER JOIN user_badges ON user_badges.user_id = user_id AND user_badges.game_id ='+ @game.id.to_s).distinct
+    @user.award_badge
+    @earned_badges = UserBadge.where(user_id: @user.id, game_id: @game.id, achieved: true).all.to_a.count
   end
 
   def edit
@@ -26,7 +30,7 @@ class UsersController < ApplicationController
 
   private
   def prepare_user
-    @user = current_user if user_signed_in?
+    @user = User.find(params[:id]) if params[:id]
   end
 
   def users_params

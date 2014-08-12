@@ -1,0 +1,15 @@
+.row
+  %h2 All Badges
+  = link_to 'Create New Badge', new_admin_badge_path(@admin), class: "btn btn-success btn-sm pull-right"
+.row
+  %table{class: "table table-hover table-condensed table-striped login-wrap"}
+    - @badges.each do |badge|
+      %tr
+        %td
+          = badge.name
+        %td
+          = badge.badge_type
+        %td= link_to 'Show', admin_badge_path(@admin, badge)
+        %td= link_to 'Edit', edit_admin_badge_path(@admin, badge)
+        %td= link_to 'Destroy', admin_badge_path(@admin, badge), :method => :delete, :data => { :confirm => 'Are you sure?' }
+

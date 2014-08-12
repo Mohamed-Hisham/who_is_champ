@@ -1,0 +1,42 @@
+.container
+  .col-md-8
+    = form_for [@admin, @badge], html: {class: "form-horizontal"} do |f|
+      - if @badge.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@badge.errors.count, "error")} prohibited this badge from being saved:"
+          %ul
+            - @badge.errors.full_messages.each do |msg|
+              %li= msg
+      .form-group
+        = f.label :name, "Badge Name", class: "col-md-6 control-label"
+        .col-sm-6
+          = f.text_field :name, placeholder: "Enter badge name", class: "form-control"
+      .form-group
+        .col-sm-6
+          = f.text_field :badge_type, placeholder: "Badge type", class: "form-control"
+      .col-md-5
+        .form-group
+          .row
+            = f.label "Upload your Avatar", class: "col-sm-5 control-label", style: "margin-top:-15px;"
+          .row
+            .col-md-6
+              = image_tag "http://placehold.it/120x120/95a5a6/ffffff", class: "preview img-thumbnail" , style: "width:120px;height:120px"
+          .row
+            .col-md-4
+              %span{class: "btn btn-primary btn-block btn-file", style: "margin-left:15px;margin-top:7px;"}
+                Upload
+                = f.file_field :badge, id: "imgfile"
+      .form-group
+        = f.submit 'Save Badge', class: "btn btn-success"
+%footer
+  :javascript
+    $("#imgfile").change(function(){
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+

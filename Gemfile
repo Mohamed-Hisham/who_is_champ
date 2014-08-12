@@ -56,8 +56,9 @@ group :development do
   gem 'letter_opener', '~> 1.2.0'
   gem 'better_errors', '~> 1.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
+  gem 'pry', '~> 0.10.0'
   gem 'pry-rails'
-  gem 'meta_request', '~> 0.3.0'
+  gem 'meta_request', '~> 0.3.4'
   gem 'powder', '~> 0.2.1'
   gem 'rails-erd', '~> 1.1.0'
 end

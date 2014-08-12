@@ -1,26 +1,26 @@
 .container
-  %h3 Edit Profile
+  %h3 #{t('views.user_profile.edit_profile')}
   .col-md-offset-2
     = form_for @user do |user|
       = user.error_messages class: 'alert alert-error'
 
       .col-md-6
         .form-group
-          = user.label :name, class: "col-sm-6 control-label"
-          = user.text_field :name, placeholder: "Name", class: "form-control"
+          = user.label :name, t('views.user_profile.name'), class: "col-sm-6 control-label"
+          = user.text_field :name, placeholder: "#{t('views.user_profile.name')}", class: "form-control"
 
         .form-group
           .row
-            = user.label "Upload your Avatar", class: "col-sm-5 control-label", style: "margin-top:-15px;"
+            = user.label t('views.user_profile.upload_your_avatar'), class: "col-sm-5 control-label", style: "margin-top:-15px;"
           .row
             = image_tag @user.avatar.url, class: "preview img-thumbnail" , style: "width:150px;height:150px"
           .row
             .col-md-5
               %span{class: "btn btn-primary btn-block btn-file"}
-                Upload
+                = t('views.user_profile.upload')
                 = user.file_field :avatar, id: "imgfile"
         .form-group
-          = user.submit "Save changes", class: "btn btn-block btn-success"
+          = user.submit t('views.user_profile.save_changes'), class: "btn btn-block btn-success"
 
 %footer
   :javascript

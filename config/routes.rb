@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   devise_for :creators, :controllers => {:registrations=> "creators/devise/registrations", :sessions => "creators/devise/sessions"}
   devise_for :users, :controllers => {:sessions => "users/devise/sessions", :invitations => 'users/devise/invitations' }
 
-  resources :admins, only: :show
+  resources :admins, only: :show do
+    resources :badges, :controller => "admins/badges"
+    resources :creators, only: [:index, :destroy], :controller => "admins/creators"
+    resources :users, only: [:index, :destroy], :controller => "admins/users"
+    resources :games, only: [:index, :destroy], :controller => "admins/games"
+  end
   resources :creators, only: [:show, :edit, :update] do
     resources :games, :controller => "creators/games", except: :index do
       resources :rules, :controller => "creators/rules", except: :show

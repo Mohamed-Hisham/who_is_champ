@@ -8,26 +8,26 @@
             %li= msg
     .col-md-7
       .form-group
-        = f.label :name, 'Game Name', class: "col-sm-6 control-label"
+        = f.label :name, t('views.creator_profile.game_name'), class: "col-sm-6 control-label"
         .col-sm-6
-          = f.text_field :name, placeholder: 'Game Name', class: "form-control"
+          = f.text_field :name, placeholder: t('views.creator_profile.game_name'), class: "form-control"
       .form-group
-        = f.label :description, 'Game Description', class: "col-sm-6 control-label"
+        = f.label :description, t('views.login.game_description'), class: "col-sm-6 control-label"
         .col-sm-6
-          = f.text_area :description, placeholder: 'Game Description', class: "form-control"
+          = f.text_area :description, placeholder: t('views.login.game_description'), class: "form-control"
       .form-group
-        = f.label :pts_per_rule, 'Points per completed rule', class: "col-sm-6 control-label"
+        = f.label :pts_per_rule, t('views.creator_profile.points_per_rule'), class: "col-sm-6 control-label"
         .col-sm-6
-          = f.text_field :pts_per_rule, placeholder: 'Points per rule', class: "form-control", type: 'number'
+          = f.text_field :pts_per_rule, placeholder: t('views.creator_profile.points_per_rule'), class: "form-control", type: 'number'
       .form-group
-        = f.label :expert_rank, 'Game Ranks', class: "col-sm-6 control-label"
+        = f.label :expert_rank, t('views.creator_profile.game_ranks'), class: "col-sm-6 control-label"
 
         .col-sm-6
-          = f.text_field :expert_rank, placeholder: 'Expert Rank', class: "form-control"
+          = f.text_field :expert_rank, placeholder: t("views.creator_profile.expert_rank"), class: "form-control"
         .col-sm-6.col-md-offset-6
-          = f.text_field :normal_rank, placeholder: 'Normal Rank', class: "form-control"
+          = f.text_field :normal_rank, placeholder: t("views.creator_profile.normal_rank"), class: "form-control"
         .col-sm-6.col-md-offset-6
-          = f.text_field :starter_rank, placeholder: 'Starter Rank', class: "form-control"
+          = f.text_field :starter_rank, placeholder: t("views.creator_profile.starter_rank"), class: "form-control"
       .form-group
         .col-md-6.col-md-offset-6
-          = f.submit 'Save', class: "btn btn-success btn-block"
+          = f.submit t('views.creator_profile.save'), class: "btn btn-success btn-block"

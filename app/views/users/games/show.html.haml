@@ -5,13 +5,13 @@
         .row
           %label{class: "title-h3"} #{@game.name}
         .row
-          %h5 Game Description:
+          %h5 #{t('views.login.game_description')}:
           .well.well-sm
             = @game.description
         .row
-          %h5 Number of Rules: #{@rules.count}
+          %h5 #{t('views.login.number_of_rules')}: #{@rules.count}
         .row
-          %h5 Number of game members: #{@game.users.count}
+          %h5 #{t('views.login.number_of_game_members')}: #{@game.users.count}
         -# %br
         -# .row
         -#   %h4 Completed Rules
@@ -28,7 +28,7 @@
         -#               = rule.priority.humanize
       .col-md-6.col-md-offset-1
         .col-md-12.leaderboard-upper
-          %label{class:"game-list-title", style: "color:white;"} Leaderboard
+          %label{class:"game-list-title", style: "color:white;"} #{t('views.home.leaderboard')}
           - @top_users.each do |user|
             %div
               = user.name
@@ -37,7 +37,7 @@
                   = user.rank
               .title-h4
                 %span{class: "label label-success"}
-                  #{user.pts} points
+                  #{user.pts} #{t('views.home.points', count: user.pts)}
 
         .col-md-12.leaderboard-col-left
           .leaderboard-col-right
@@ -54,8 +54,8 @@
                     %td
                       .title-h4
                         %span{class: "label label-success pull-right"}
-                          #{user.pts} points
+                          #{user.pts} #{t('views.home.points', count: user.pts)}
 
   .row
     .col-md-4.col-md-offset-3
-      = link_to 'Back to Profile', user_path(@user), class: "btn btn-default btn-block"
+      = link_to t('views.creator_profile.back_to_profile'), user_path(@user), class: "btn btn-default btn-block"

@@ -8,7 +8,8 @@ class Game < ActiveRecord::Base
   belongs_to :creator
   has_many :users, dependent: :destroy
   has_many :rules, dependent: :destroy
-  has_many :user_rules
+  has_many :user_rules, dependent: :destroy
+  has_many :user_badges, dependent: :destroy
 
   # Functions
 end

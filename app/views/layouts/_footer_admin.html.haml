@@ -1,0 +1,13 @@
+.col-md-2
+  - if (I18n.locale.to_sym != I18n.default_locale.to_sym)
+    = link_to 'English', url_for(request.parameters.merge(locale: 'en')), class: "btn btn-sm btn-danger"
+  - else
+    = link_to 'ﻋﺮﺑﻰ', url_for(request.parameters.merge(locale: 'ar')), class: "btn btn-sm btn-danger"
+
+.col-md-5.col-md-offset-2{style:"color:#bdc3c7;font-size:10pt;margin-top:13px;"}
+  © Designed & Created by Mohamed Hisham (mhha1g13)
+
+.col-md-2.col-md-offset-1
+  - if current_admin.nil?
+    .pull-right
+      = link_to "Admin", new_admin_session_path, class: "btn btn-sm btn-info"

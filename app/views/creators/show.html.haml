@@ -1,10 +1,10 @@
 .container
   .row.profile-info
     .col-md-offset-1
-      .ribbon.ribbon-orange.ribbon-large.ribbon-div{style: "right:-30px;"}
+      .ribbon.ribbon-orange.ribbon-large.ribbon-div
         .banner
-          .text
-            Creator
+          .text{style:"font-size:15px;"}
+            = t('views.login.creator')
       %div{style: "background-color: rgba(255, 255, 255);height:168px;"}
         .col-md-1
           = image_tag @creator.avatar.url , class: "img-circle profile-image"
@@ -13,17 +13,17 @@
             %h2{style: "margin-left:10px;"} #{@creator.name}
           .row
             .col-md-3
-              %label{class: "title-h5"} #{pluralize(@games.count, "Game")}
+              %h4 #{@games.count} #{t('views.creator_profile.games', count: @games.count)}
             .col-md-3
-              %h4 #{pluralize(@rules_count, "Rule")}
+              %h4 #{@rules_count} #{t('views.home.rules', count: @rules_count)}
             .col-md-5
-              %h4 #{pluralize(@users_count, "Game Member")}
+              %h4 #{@users_count} #{t('views.creator_profile.game_members', count: @users_count)}
   %br
   .row
     .col-md-8
       .row
-        %label{class: "game-list-title"} Games list
-        = link_to "Create Game", new_creator_game_path(@creator), class: "pull-right btn btn-success"
+        %label{class: "game-list-title"} #{t('views.creator_profile.games_list')}
+        = link_to t('views.creator_profile.create_game'), new_creator_game_path(@creator), class: "pull-right btn btn-success"
       %br
       .row
         %div{id: "rules"}
@@ -34,8 +34,8 @@
                   %td
                     = game.name
                   %td
-                    #{pluralize(game.rules.count, "Rule")}
+                    #{game.rules.count} #{t('views.home.rules')}
                   %td
-                    = link_to "View Game", creator_game_path(@creator, game), class: "btn btn-info pull-left"
+                    = link_to t('views.home.view_game'), creator_game_path(@creator, game), class: "btn btn-info pull-left"
             - else
-              %h4 No games created yet!
+              %h4 #{t('views.creator_profile.no_games')}

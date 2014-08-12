@@ -21,7 +21,133 @@
 
 ar:
   nav:
-    profile: "اﻟﻤﻠﻒ اﻟﺸﺨﺼﻲ"
+    gamify: Gamify
+    about: ﻋﻦ اﻟﻤﻮﻗﻊ
+
   common:
-    welcome: "اﻫﻼ"
-    admin: "اﺩﻣﻦ"
+    welcome: اﻫﻼ
+    admin: اﺩﻣﻦ
+
+  views:
+    home:
+      home_page: اﻟﺼﻔﺤﺔ اﻟﺮﺋﻴﺴﺔ
+      email: "البريد الإلكتروني"
+      password: ﻛﻠﻤﺔ اﻟﻤﺮﻭﺭ
+      badges:
+        one: ﻭﺳﺎﻡ
+        two: ﻭﺳﺎﻣﺎﻥ
+        other: أوسمة
+      rules: ﻣﻬﻤﺎﺕ
+      leaderboard: ﻟﻮﺣﺔ اﻟﻔﺎﺋﺰﻳﻦ
+      leaderboard_position: اﻟﻤﺮﻛﺰ
+      points: ﻧﻘﻄﺔ
+        # zero: ﻧﻘﻄﺔ
+        # other: ﻧﻘﺎﻁ
+      low: ﻋﺎﺩﻳﺔ
+      high: ﻣﻬﻤﺔ ﺃﻭﻱ
+      normal: ﻧﺺ ﻧﺺ
+      view_game: ﻋﺮﺽ اﻟﻤﻨﺎﻓﺴﺔ
+      user: اﻟﻤﺸﺘﺮﻙ
+      pending_approval: ﺑﺎﻧﺘﻈﺎﺭ اﻟﺘﺄﻛﻴﺪ
+      mark_as_complete: ﺗﻢ ﺇﻧﺠﺎﺯ اﻟﻤﻬﻤﺔ
+      complete: ﺧﻠﺼﺖ اﻟﻤﻬﻤﺔ
+      competition_badges: أوسمة اﻟﻤﻨﺎﻓﺴﺔ
+      profile_settings: اﻋﺪاﺩاﺕ اﻟﻤﻠﻒ اﻟﺸﺨﺼﻲ
+      close: ﻏﻠﻖ
+
+    login:
+      signin: ﺗﺴﺠﻴﻞ اﻟﺪﺧﻮﻝ
+      signup: ﺇﻧﺸﺎء ﺣﺴﺎﺏ
+      creator: ﻣﻨﻈﻢ اﻟﻤﻨﺎﻓﺴﺔ
+      slogan: gamify your work...gamify your life
+      game_description: ﺷﺮﺡ اﻟﻤﻨﺎﻓﺴﺔ
+      number_of_rules: ﻋﺪﺩ اﻟﻤﻬﻤﺎﺕ
+      number_of_game_members: ﻋﺪﺩ اﻟﻤﺸﺎﺭﻛﻴﻦ
+      signout: ﺗﺴﺠﻴﻞ اﻟﺨﺮﻭﺝ
+
+    user_profile:
+        edit_profile: ﺗﻌﺪﻳﻞ اﻟﻤﻠﻒ اﻟﺸﺨﺼﻲ
+        name: اﻹﺳﻢ
+        upload_your_avatar: ﺗﺤﻤﻴﻞ ﺻﻮﺭﺓ ﺭﻣﺰﻳﺔ
+        upload: ﺗﺤﻤﻴﻞ
+        save_changes: ﺣﻔﻆ اﻟﺘﻌﺪﻳﻼﺕ
+        pending_rules_count:
+          one: ﻣﻬﻤﺔ ﻗﻴﺪ اﻟﻤﻮاﻓﻘﺔ
+          other: ﻣﻬﻤﺎﺕ ﻗﻴﺪ اﻟﻤﻮاﻓﻘﺔ
+        comp_rules_count:
+          one: ﻣﻬﻤﺔ ﻣﻨﺠﺰﺓ
+          two: "ﻣﻬﻤﺘﺎﻥ ﻣﻨﺠﺯﺗﺎﻥ"
+          other: ﻣﻬﻤﺎﺕ ﻣﻨﺠﺰﺓ
+
+    creator_profile:
+        game_members: ﻣﺸﺘﺮﻛﻴﻦ ﺑﺎﻟﻤﻨﺎﻓﺴﺔ
+        games:
+          one: ﻣﻨﺎﻓﺴﺔ
+          other: ﻣﻨﺎﻓﺴﺎﺕ
+        create_game: ﺇﻧﺸﺎء ﻣﻨﺎﻓﺴﺔ
+        games_list: ﻗﺎﺋﻤﺔ اﻟﻤﻨﺎﻓﺴﺎﺕ
+        new_game: "ﻣﻨﺎﻓﺴﺔ ﺟﺪﻳﺪﺓ"
+        back_to_profile: اﻟﺮﺟﻮﻉ ﻟﻠﻤﻠﻒ اﻟﺸﺨﺼﻲ
+        add_new_rule: ﺇﺿﺎﻓﺔ ﻣﻬﻤﺔ ﺟﺪﻳﺪﺓ
+        add_new_rule_to: ﺇﺿﺎﻓﺔ ﻣﻬﻤﺔ ﺟﺪﻳﺪﺓ الى
+        add_rule: "ﺇﺿﺎﻓﺔ ﻣﻬﻤﺔ"
+        rule_description: "وصف اﻟﻤﻬﻤﺔ"
+        rule_priority: "ﺃﻭﻟﻮﻳﺔ اﻟﻤﻬﻤﺔ"
+        edit_comp: ﺗﻌﺪﻳﻞ منافسة
+        edit_game: ﺗﻌﺪﻳﻞ منافسة
+        invite_new_users: ﺩﻋﻮﺓ ﻣﺸﺘﺮﻛﻴﻦ ﺟﺪﺩ
+        pending_rules: اﻟﻤﻬﻤﺎﺕ ﻗﻴﺪ اﻟﻤﻮاﻓﻘﺔ
+        approve: ﻣﻮاﻓﻘﺔ
+        no_games: "ﻻ ﻳﻮﺟﺪ ﻣﻨﺎﻓﺴﺎﺕ"
+        game_name: "اﺳﻢ اﻟﻤﻨﺎﻓﺴﺔ"
+        points_per_rule: "ﻋﺪﺩ اﻟﻨﻘﺎﻁ ﺑﻌﺪ ﺇﺗﻤﺎﻡ ﻣﻬﻤﺔ ﻭاﺣﺪﺓ"
+        game_ranks: "اﻟﻘﺎﺏ اﻟﻤﻨﺎﻓﺴﺔ"
+        save: ﺣﻔﻆ
+        expert_rank: اﻟﻠﻘﺐ اﻟﻤﺘﻤﻴﺰ
+        normal_rank: اﻟﻠﻘﺐ اﻟﻌﺎﺩﻱ
+        starter_rank: اﻟﻠﻘﺐ اﻟﻤﺒﺘﺪﺃ
+        no_pending_rules: "ﻻ ﻳﻮﺟﺪ ﻣﻬﻤﺎﺕ ﻗﻴﺪ اﻟﻤﻮاﻓﻘﺔ"
+        invite_user_to_your: "ﺩﻋﻮﺓ ﻣﺸﺘﺮﻙ ﺟﺪﻳﺪ اﻟﻰ"
+        send_invitation: "إرسال الدعوة"
+        delete_game: "إلغاء المنافسة"
+        back_to_game: "الرجوع الى المنافسة"
+
+  badge:
+    firstsignin: "أول دخول على الموقع"
+    early: "دخول على الموقع من الساعة ٣ الى ٧ صباحا"
+    lastmonth: "آخر دخول على الموقع من شهر مضى"
+    signinl1: "المستوى الأول في عدد الدخول على الموقع"
+    signinl2: "المستوى الثاني في عدد الدخول على الموقع"
+    signinl3: "المستوى الثالث في عدد الدخول على الموقع"
+    highl1: "المستوى الأول في إنجاز المهام المهمة جدا"
+    highl2: "المستوى الثاني في إنجاز المهام المهمة جدا"
+    highl3: "المستوى الثالث في إنجاز المهام المهمة جدا"
+    normall1: "المستوى الأول في إنجاز المهام النص نص"
+    normall2: "المستوى الثاني في إنجاز المهام النص نص"
+    normall3: "المستوى الثالث في إنجاز المهام النص نص"
+    lowl1: "المستوى الأول في إنجاز المهام العادية"
+    lowl2: "المستوى الثاني في إنجاز المهام العادية"
+    lowl3: "المستوى الثالث في إنجاز المهام العادية"
+    firstsocial: "أول مشازكة على مواقع الشبكات اجتماعية"
+    sociall1: "المستوى الأول في عدد المشاركات على مواقع الشبكات اجتماعية"
+    sociall2: "المستوى الثاني في عدد المشاركات على مواقع الشبكات اجتماعية"
+    sociall3: "المستوى الثالث في عدد المشاركات على مواقع الشبكات اجتماعية"
+
+  creator_cont:
+    Game_created: "Game was successfully created."
+    Game_updated: "Game was successfully updated."
+    Game_deleted: "Game was successfully deleted."
+
+    Rule_created: "Rule was successfully created."
+    Rule_updated: " Rule was successfully updated."
+    Rule_deleted: " Rule was successfully deleted."
+    was_marked_as_complete: "ٌRule was successfully marked as complete."
+    was_NOT_marked_as_complete: "Rule was NOT marked as complete."
+    Please_try_again: "Please try again."
+    The_email_you_input_is_either_invalid_or_empty: "The email you input is either invalid or empty."
+    Please_input_a_valid_one: "Please input a valid one."
+
+  user_cont:
+    was_marked_as_pending: "was marked as pending."
+    Awaitng_Creator_to_approve: "Awaitng Creator to approve."
+    was_NOT_marked_as_pending: "was NOT marked as pending."

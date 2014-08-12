@@ -1,0 +1,29 @@
+!!!
+%html{lang: I18n.locale}
+  %head
+    %title Gamification
+    = stylesheet_link_tag "application-#{I18n.locale}", media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag "dashboard-#{I18n.locale}", media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = favicon_link_tag 'favicon.ico'
+    = csrf_meta_tags
+  %body{class: "normal-wrapper"}
+    .container-fluid
+      = render "layouts/header"
+    .container-fluid
+      .col-md-2.sidebar
+        %ul.nav.nav-sidebar
+          %li{class: "#{check_admin_badges_page}"}
+            = link_to "Badges", admin_badges_path(@admin)
+          %li{class: "#{check_admin_creators_page}"}
+            = link_to "Creators", admin_creators_path(@admin)
+          %li{class: "#{check_admin_users_page}"}
+            = link_to "Users", admin_users_path(@admin)
+          %li{class: "#{check_admin_games_page}"}
+            = link_to "Games", admin_games_path(@admin)
+      .col-md-10.col-md-offset-2.main
+        = render "layouts/flash_messages"
+        = yield
+    .footer.navbar-fixed-bottom
+      .container-fluid
+        = render "layouts/footer_admin"

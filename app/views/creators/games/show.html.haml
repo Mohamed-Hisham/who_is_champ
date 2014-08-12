@@ -3,10 +3,10 @@
     .col-md-3
       %label{class: "title-h3"} #{@game.name}
     .col-md-3
-      = link_to 'Edit Game', edit_creator_game_path(@creator, @game), class: "btn btn-warning"
-      %button{class: "btn btn-success", data: {toggle:"modal", target:"#inviteModal"}} Invite New Users
+      = link_to t('views.creator_profile.edit_comp'), edit_creator_game_path(@creator, @game), class: "btn btn-warning"
+      %button{class: "btn btn-success", data: {toggle:"modal", target:"#inviteModal"}} #{t('views.creator_profile.invite_new_users')}
     .col-md-6.pull-right
-      %label{class:"game-list-title"} Pending Rules
+      %label{class:"game-list-title"} #{t('views.creator_profile.pending_rules')}
       .row
         .col-md-12
           - if @pending_rules.any?
@@ -20,29 +20,30 @@
                       = rule.description
                     %td
                       %span{class: "#{rule_priority(rule)}"}
-                        = rule.priority.humanize
+                        #{rule_priority_text(rule)}
                     %td
-                      = form_for rule, :url => rule_complete_user_rule_path(@user, rule), :html => {:method => :post} do |f|
+                      = form_for rule, :url => rule_complete_user_rule_path(@pending_user, rule), :html => {:method => :post} do |f|
                         = f.hidden_field :game_id, value: @game.id
 
                         = f.button type: "submit", class: "mark", style: "color:#d35400;" do
                           %i{class: "fa fa-square-o"}
-                          Approve
+                          #{t('views.creator_profile.approve')}
           - else
-            There are no pending rules..
+            = t('views.creator_profile.no_pending_rules')
     .col-md-5
-      %h5 Game Description:
+      %h5 #{t('views.login.game_description')}:
       .well.well-sm
         = @game.description
-      %h5 Number of Rules: #{@game.rules.count}
-      %h5 Number of game members: #{@game.users.count}
+      %h5 #{t('views.login.number_of_rules')}: #{@game.rules.count}
+      %h5 #{t('views.login.number_of_game_members')}: #{@game.users.count}
   .row
     .row
       .col-md-5
-        %label{class:"title-h3"} Rules
-        %button{class: "btn btn-sm btn-success pull-right", style: "width:127px;", data: {toggle:"modal", target:"#RuleModal"}} Add New Rule
+        %label{class:"title-h3"} #{t('views.home.rules')}
+        %button{class: "btn btn-sm btn-success pull-right", style: "width:127px;", data: {toggle:"modal", target:"#RuleModal"}}
+          #{t('views.creator_profile.add_new_rule')}
       .col-md-6.col-md-offset-1
-        %label{class:"title-h3"} Leaderboard
+        %label{class:"title-h3"} #{t('views.home.leaderboard')}
 
     .row
       .col-md-5
@@ -56,13 +57,13 @@
                       = rule.description
                     %td
                       %span{class: "#{rule_priority(rule)}"}
-                        = rule.priority.humanize
+                        #{rule_priority_text(rule)}
                     %td
                       -# %a{data: {toggle:"modal", target:"#RuleEditModal"}}
                       = link_to edit_creator_game_rule_path(@creator, @game, rule) do
                         %i{class: "fa fa-pencil"}
                     %td
-                      = link_to creator_game_rule_path(@creator, @game, rule), :method => :delete, :data => { :confirm => "Delete #{rule.description.truncate(40)} Rule" } do
+                      = link_to creator_game_rule_path(@creator, @game, rule), :method => :delete, :data => { :confirm => "Delete #{rule.description.truncate(40)}" } do
                         %i{class: "fa fa-trash-o pull-right", style: "color:red;"}
         - else
           No Rules created yet!
@@ -82,19 +83,19 @@
                   %td
                     .title-h4
                       %span{class: "label label-success pull-right"}
-                        #{user.pts} points
+                        #{user.pts} #{t('views.home.points', count: user.pts)}
         - else
           No users have joined the game yet!
           Begin inviting users
   .col-md-3.col-md-offset-4{style:"margin-top:-80px;"}
-    = link_to 'Back to Profile', creator_path, class: "btn btn-default btn-block"
+    = link_to t('views.creator_profile.back_to_profile'), creator_path, class: "btn btn-default btn-block"
 
 #inviteModal.modal.fade
   .modal-dialog
     .modal-content
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-        %h4.modal-title Invite user to your #{@game.name} game
+        %h4.modal-title #{t('views.creator_profile.invite_user_to_your')} #{@game.name} game
       .modal-body
         = form_for :user, :as => @user, :url => invitation_path(@user), :html => {:method => :post, :class => "form-horizontal"} do |f|
           - @user.class.invite_key_fields.each do |field|
@@ -105,40 +106,40 @@
                 = f.text_field field, placeholder: "User Email", class: "form-control"
           .form-group
             .col-md-offset-4
-              = f.submit "Send Invitation", class:"btn btn-success"
-              %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+              = f.submit t('views.creator_profile.send_invitation'), class:"btn btn-success"
+              %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} #{t('views.home.close')}
 #RuleModal.modal.fade
   .modal-dialog
     .modal-content
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-        %h4.modal-title Add new rule to your #{@game.name} game
+        %h4.modal-title #{t('views.creator_profile.add_new_rule_to')} #{@game.name}
       .modal-body
         = form_for @rule, url: creator_game_rules_path(@creator, @game), :html => {:class => "form-horizontal"} do |f|
           .form-group
             .col-md-12
-              = f.text_field :description, placeholder: "Rule Description", class: "form-control"
+              = f.text_field :description, placeholder: t('views.creator_profile.rule_description'), class: "form-control"
           .form-group
             .col-md-12
               .col-md-3
-                = f.label :priority, "Rule Priority"
+                = f.label :priority, t('views.creator_profile.rule_priority')
               .radio
                 .col-md-2
                   %label{value: :high}
                     = f.radio_button :priority,:high
-                    High
+                    #{t('views.home.high')}
                 .col-md-2
                   %label{value: :normal}
                     = f.radio_button :priority,:normal
-                    Normal
+                    #{t('views.home.normal')}
                 .col-md-2
                   %label{value: :low}
                     = f.radio_button :priority,:low
-                    Low
+                    #{t('views.home.low')}
           .form-group
             .col-md-offset-4
-              = f.submit "Add Rule", class:"btn btn-success"
-              %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+              = f.submit t('views.creator_profile.add_rule'), class:"btn btn-success"
+              %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} #{t('views.home.close')}
 
 -# #RuleEditModal.modal.fade
 -#   .modal-dialog

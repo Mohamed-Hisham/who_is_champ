@@ -11,4 +11,13 @@ module ApplicationHelper
     end
   end
 
+  def html_direction
+    if I18n.locale == 'ar'
+      dir = "rtl"
+    elsif I18n.locale == 'en'
+      dir = "ltr"
+    end
+    return dir
+  end
+
 end

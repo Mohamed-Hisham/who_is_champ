@@ -1,0 +1,7 @@
+%h3 Badge Details
+
+%h4 #{@badge.name}
+= image_tag @badge.badge.url
+= link_to 'Edit', edit_admin_badge_path(@admin, @badge)
+\|
+= link_to 'Back', admin_badges_path(@admin)

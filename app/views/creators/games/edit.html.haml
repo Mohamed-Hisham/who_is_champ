@@ -1,11 +1,11 @@
 .container
-  %h3 Edit #{@game.name}
+  %h3 #{t('views.creator_profile.edit_game')} #{@game.name}
   .row
     = render 'form'
 
   .row
     .col-md-offset-4
       .row-fluid
-        = link_to 'Delete Game', creator_game_path(@creator, @game), :method => :delete, :data => { :confirm => "Delete #{@game.name} Game" },class: "btn btn-danger", style: "width:37%;margin-left:35px;"
+        = link_to t('views.creator_profile.delete_game'), creator_game_path(@creator, @game), :method => :delete, :data => { :confirm => "Delete #{@game.name} Game" },class: "btn btn-danger btn-new-game-back"
       .row-fluid{style:"margin-top:15px;"}
-        = link_to 'Back', creator_game_path(@creator, @game), class: "btn btn-default", style: "width:37%;margin-left:35px;"
+        = link_to t('views.creator_profile.back_to_game'), creator_game_path(@creator, @game), class: "btn btn-default btn-new-game-back"

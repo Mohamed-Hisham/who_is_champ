@@ -19,13 +19,6 @@
 @brand-warning:         #F39C12;
 @brand-danger:          #E74C3C;
 
-// ltr or rtl
-@text-direction:        rtl;
-
-@bi-app-left            : ~`"@{text-direction}" === 'ltr' ? 'left'  : 'right'`;
-@bi-app-right           : ~`"@{text-direction}" === 'ltr' ? 'right' : 'left'`;
-@bi-app-direction       : @text-direction;
-@bi-app-invert-direction: ~`"@{text-direction}" === 'ltr' ? 'rtl' : 'ltr'`;
 
 //== Scaffolding
 //
@@ -41,18 +34,26 @@
 //** Link hover color set via `darken()` function.
 @link-hover-color:      @link-color;
 
+// ltr or rtl
+@text-direction:        rtl;
+
+@bi-app-left            : ~`"@{text-direction}" === 'ltr' ? 'left'  : 'right'`;
+@bi-app-right           : ~`"@{text-direction}" === 'ltr' ? 'right' : 'left'`;
+@bi-app-direction       : @text-direction;
+@bi-app-invert-direction: ~`"@{text-direction}" === 'ltr' ? 'rtl' : 'ltr'`;
+
 
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  'Open Sans', sans-serif;
+@font-family-sans-serif:  'AraJozoor-Regular',Sans-Serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          15px;
+@font-size-base:          16px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
