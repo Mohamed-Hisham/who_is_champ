@@ -21,117 +21,117 @@
 
 ar:
   nav:
-    gamify: Gamify
-    about: ﻋﻦ اﻟﻤﻮﻗﻊ
+    gamify: "ﻣﻴﻦ اﻟﺒﺮﻧﺲ؟"
+    about: "ﻋﻦ اﻟﻤﻮﻗﻊ"
 
   common:
-    welcome: اﻫﻼ
-    admin: اﺩﻣﻦ
+    welcome: "اﻫﻼ"
+    admin: "اﺩﻣﻦ"
 
   views:
     home:
-      home_page: اﻟﺼﻔﺤﺔ اﻟﺮﺋﻴﺴﺔ
-      email: "البريد الإلكتروني"
-      password: ﻛﻠﻤﺔ اﻟﻤﺮﻭﺭ
+      home_page: "اﻟﺼﻔﺤﺔ اﻟﺮﺋﻴﺴﺔ"
+      email: "اﻟﺒﺮﻳﺪ اﻹﻟﻜﺘﺮﻭﻧﻲ"
+      password: "ﻛﻠﻤﺔ اﻟﻤﺮﻭﺭ"
       badges:
-        one: ﻭﺳﺎﻡ
-        two: ﻭﺳﺎﻣﺎﻥ
-        other: أوسمة
-      rules: ﻣﻬﻤﺎﺕ
-      leaderboard: ﻟﻮﺣﺔ اﻟﻔﺎﺋﺰﻳﻦ
-      leaderboard_position: اﻟﻤﺮﻛﺰ
-      points: ﻧﻘﻄﺔ
+        one: "ﻭﺳﺎﻡ"
+        two: "ﻭﺳﺎﻣﺎﻥ"
+        other: "أوسمة"
+      rules: "ﻣﻬﻤﺎﺕ"
+      leaderboard: "ﻟﻮﺣﺔ اﻟﻔﺎﺋﺰﻳﻦ"
+      leaderboard_position: "اﻟﻤﺮﻛﺰ"
+      points: "ﻧﻘﻄﺔ"
         # zero: ﻧﻘﻄﺔ
         # other: ﻧﻘﺎﻁ
-      low: ﻋﺎﺩﻳﺔ
-      high: ﻣﻬﻤﺔ ﺃﻭﻱ
-      normal: ﻧﺺ ﻧﺺ
-      view_game: ﻋﺮﺽ اﻟﻤﻨﺎﻓﺴﺔ
-      user: اﻟﻤﺸﺘﺮﻙ
-      pending_approval: ﺑﺎﻧﺘﻈﺎﺭ اﻟﺘﺄﻛﻴﺪ
-      mark_as_complete: ﺗﻢ ﺇﻧﺠﺎﺯ اﻟﻤﻬﻤﺔ
-      complete: ﺧﻠﺼﺖ اﻟﻤﻬﻤﺔ
-      competition_badges: أوسمة اﻟﻤﻨﺎﻓﺴﺔ
-      profile_settings: اﻋﺪاﺩاﺕ اﻟﻤﻠﻒ اﻟﺸﺨﺼﻲ
-      close: ﻏﻠﻖ
+      low: "ﻋﺎﺩﻳﺔ"
+      high: "ﻣﻬﻤﺔ أوي"
+      normal: "ﻧﺺ ﻧﺺ"
+      view_game: "ﻋﺮﺽ اﻟﻤﻨﺎﻓﺴﺔ"
+      user: "اﻟﻤﺸﺘﺮك"
+      pending_approval: "ﺑﺎﻧﺘﻈﺎﺭ اﻟﺘﺄﻛﻴﺪ"
+      mark_as_complete: "ﺗﻢ إﻧﺠﺎز اﻟﻤﻬﻤﺔ"
+      complete: "ﺧﻠﺼﺖ اﻟﻤﻬﻤﺔ"
+      competition_badges: "أوسمة اﻟﻤﻨﺎﻓﺴﺔ"
+      profile_settings: "اﻋﺪاﺩاﺕ اﻟﻤﻠﻒ اﻟﺸﺨﺼﻲ"
+      close: "ﻏﻠﻖ"
 
     login:
-      signin: ﺗﺴﺠﻴﻞ اﻟﺪﺧﻮﻝ
-      signup: ﺇﻧﺸﺎء ﺣﺴﺎﺏ
-      creator: ﻣﻨﻈﻢ اﻟﻤﻨﺎﻓﺴﺔ
-      slogan: gamify your work...gamify your life
-      game_description: ﺷﺮﺡ اﻟﻤﻨﺎﻓﺴﺔ
-      number_of_rules: ﻋﺪﺩ اﻟﻤﻬﻤﺎﺕ
-      number_of_game_members: ﻋﺪﺩ اﻟﻤﺸﺎﺭﻛﻴﻦ
-      signout: ﺗﺴﺠﻴﻞ اﻟﺨﺮﻭﺝ
+      signin: "ﺗﺴﺠﻴﻞ اﻟﺪﺧﻮﻝ"
+      signup: "ﺇﻧﺸﺎء ﺣﺴﺎﺏ"
+      creator: "ﻣﻨﻈﻢ اﻟﻤﻨﺎﻓﺴﺔ"
+      slogan: "ﻓﺮﻓﺶ ﺷﻐﻠﻚ ... ﻓﺮﻓﺶ ﺣﻴﺎﺗﻚ!"
+      game_description: "ﺷﺮﺡ اﻟﻤﻨﺎﻓﺴﺔ"
+      number_of_rules: "ﻋﺪﺩ اﻟﻤﻬﻤﺎﺕ"
+      number_of_game_members: "ﻋﺪﺩ اﻟﻤﺸﺎﺭﻛﻴﻦ"
+      signout: "ﺗﺴﺠﻴﻞ اﻟﺨﺮﻭﺝ"
 
     user_profile:
-        edit_profile: ﺗﻌﺪﻳﻞ اﻟﻤﻠﻒ اﻟﺸﺨﺼﻲ
-        name: اﻹﺳﻢ
-        upload_your_avatar: ﺗﺤﻤﻴﻞ ﺻﻮﺭﺓ ﺭﻣﺰﻳﺔ
-        upload: ﺗﺤﻤﻴﻞ
-        save_changes: ﺣﻔﻆ اﻟﺘﻌﺪﻳﻼﺕ
+        edit_profile: "ﺗﻌﺪﻳﻞ اﻟﻤﻠﻒ اﻟﺸﺨﺼﻲ"
+        name: "اﻹﺳﻢ"
+        upload_your_avatar: "ﺗﺤﻤﻴﻞ ﺻﻮﺭﺓ ﺭﻣﺰﻳﺔ"
+        upload: "ﺗﺤﻤﻴﻞ"
+        save_changes: "ﺣﻔﻆ اﻟﺘﻌﺪﻳﻼﺕ"
         pending_rules_count:
-          one: ﻣﻬﻤﺔ ﻗﻴﺪ اﻟﻤﻮاﻓﻘﺔ
-          other: ﻣﻬﻤﺎﺕ ﻗﻴﺪ اﻟﻤﻮاﻓﻘﺔ
+          one: "ﻣﻬﻤﺔ ﻗﻴﺪ اﻟﻤﻮاﻓﻘﺔ"
+          other: "مهمات ﻗﻴﺪ اﻟﻤﻮاﻓﻘﺔ"
         comp_rules_count:
-          one: ﻣﻬﻤﺔ ﻣﻨﺠﺰﺓ
+          one: "ﻣﻬﻤﺔ منجزة"
           two: "ﻣﻬﻤﺘﺎﻥ ﻣﻨﺠﺯﺗﺎﻥ"
-          other: ﻣﻬﻤﺎﺕ ﻣﻨﺠﺰﺓ
+          other: "ﻣﻬﻤﺎﺕ ﻣﻨﺠﺰﺓ"
 
     creator_profile:
-        game_members: ﻣﺸﺘﺮﻛﻴﻦ ﺑﺎﻟﻤﻨﺎﻓﺴﺔ
+        game_members: "ﻣﺸﺘﺮﻛﻴﻦ ﺑﺎﻟﻤﻨﺎﻓﺴﺔ"
         games:
-          one: ﻣﻨﺎﻓﺴﺔ
-          other: ﻣﻨﺎﻓﺴﺎﺕ
-        create_game: ﺇﻧﺸﺎء ﻣﻨﺎﻓﺴﺔ
-        games_list: ﻗﺎﺋﻤﺔ اﻟﻤﻨﺎﻓﺴﺎﺕ
+          one: "ﻣﻨﺎﻓﺴﺔ"
+          other: "ﻣﻨﺎﻓﺴﺎﺕ"
+        create_game: "ﺇﻧﺸﺎء ﻣﻨﺎﻓﺴﺔ"
+        games_list: "ﻗﺎﺋﻤﺔ اﻟﻤﻨﺎﻓﺴﺎﺕ"
         new_game: "ﻣﻨﺎﻓﺴﺔ ﺟﺪﻳﺪﺓ"
-        back_to_profile: اﻟﺮﺟﻮﻉ ﻟﻠﻤﻠﻒ اﻟﺸﺨﺼﻲ
-        add_new_rule: ﺇﺿﺎﻓﺔ ﻣﻬﻤﺔ ﺟﺪﻳﺪﺓ
-        add_new_rule_to: ﺇﺿﺎﻓﺔ ﻣﻬﻤﺔ ﺟﺪﻳﺪﺓ الى
+        back_to_profile: ا"ﻟﺮﺟﻮﻉ ﻟﻠﻤﻠﻒ اﻟﺸﺨﺼﻲ"
+        add_new_rule: "ﺇﺿﺎﻓﺔ ﻣﻬﻤﺔ ﺟﺪﻳﺪﺓ"
+        add_new_rule_to: "ﺇﺿﺎﻓﺔ ﻣﻬﻤﺔ ﺟﺪﻳﺪﺓ اﻟﻰ"
         add_rule: "ﺇﺿﺎﻓﺔ ﻣﻬﻤﺔ"
-        rule_description: "وصف اﻟﻤﻬﻤﺔ"
+        rule_description: "ﻭﺻﻒ اﻟﻤﻬﻤﺔ"
         rule_priority: "ﺃﻭﻟﻮﻳﺔ اﻟﻤﻬﻤﺔ"
-        edit_comp: ﺗﻌﺪﻳﻞ منافسة
-        edit_game: ﺗﻌﺪﻳﻞ منافسة
-        invite_new_users: ﺩﻋﻮﺓ ﻣﺸﺘﺮﻛﻴﻦ ﺟﺪﺩ
-        pending_rules: اﻟﻤﻬﻤﺎﺕ ﻗﻴﺪ اﻟﻤﻮاﻓﻘﺔ
-        approve: ﻣﻮاﻓﻘﺔ
+        edit_comp: "ﺗﻌﺪﻳﻞ ﻣﻨﺎﻓﺴﺔ"
+        edit_game: "ﺗﻌﺪﻳﻞ ﻣﻨﺎﻓﺴﺔ"
+        invite_new_users: "ﺩﻋﻮﺓ ﻣﺸﺘﺮﻛﻴﻦ ﺟﺪﺩ"
+        pending_rules: "اﻟﻤﻬﻤﺎﺕ ﻗﻴﺪ اﻟﻤﻮاﻓﻘﺔ"
+        approve: "ﻣﻮاﻓﻘﺔ"
         no_games: "ﻻ ﻳﻮﺟﺪ ﻣﻨﺎﻓﺴﺎﺕ"
         game_name: "اﺳﻢ اﻟﻤﻨﺎﻓﺴﺔ"
         points_per_rule: "ﻋﺪﺩ اﻟﻨﻘﺎﻁ ﺑﻌﺪ ﺇﺗﻤﺎﻡ ﻣﻬﻤﺔ ﻭاﺣﺪﺓ"
         game_ranks: "اﻟﻘﺎﺏ اﻟﻤﻨﺎﻓﺴﺔ"
-        save: ﺣﻔﻆ
-        expert_rank: اﻟﻠﻘﺐ اﻟﻤﺘﻤﻴﺰ
-        normal_rank: اﻟﻠﻘﺐ اﻟﻌﺎﺩﻱ
-        starter_rank: اﻟﻠﻘﺐ اﻟﻤﺒﺘﺪﺃ
+        save: "ﺣﻔﻆ"
+        expert_rank: "اﻟﻠﻘﺐ اﻟﻤﺘﻤﻴﺰ"
+        normal_rank: "اﻟﻠﻘﺐ اﻟﻌﺎﺩﻱ"
+        starter_rank: "اﻟﻠﻘﺐ اﻟﻤﺒﺘﺪﺃ"
         no_pending_rules: "ﻻ ﻳﻮﺟﺪ ﻣﻬﻤﺎﺕ ﻗﻴﺪ اﻟﻤﻮاﻓﻘﺔ"
         invite_user_to_your: "ﺩﻋﻮﺓ ﻣﺸﺘﺮﻙ ﺟﺪﻳﺪ اﻟﻰ"
-        send_invitation: "إرسال الدعوة"
-        delete_game: "إلغاء المنافسة"
-        back_to_game: "الرجوع الى المنافسة"
+        send_invitation: "ﺇﺭﺳﺎﻝ اﻟﺪﻋﻮﺓ"
+        delete_game: "ﺇﻟﻐﺎء اﻟﻤﻨﺎﻓﺴﺔ"
+        back_to_game: "اﻟﺮﺟﻮﻉ اﻟﻰ اﻟﻤﻨﺎﻓﺴﺔ"
 
   badge:
-    firstsignin: "أول دخول على الموقع"
-    early: "دخول على الموقع من الساعة ٣ الى ٧ صباحا"
-    lastmonth: "آخر دخول على الموقع من شهر مضى"
-    signinl1: "المستوى الأول في عدد الدخول على الموقع"
-    signinl2: "المستوى الثاني في عدد الدخول على الموقع"
-    signinl3: "المستوى الثالث في عدد الدخول على الموقع"
-    highl1: "المستوى الأول في إنجاز المهام المهمة جدا"
-    highl2: "المستوى الثاني في إنجاز المهام المهمة جدا"
-    highl3: "المستوى الثالث في إنجاز المهام المهمة جدا"
-    normall1: "المستوى الأول في إنجاز المهام النص نص"
-    normall2: "المستوى الثاني في إنجاز المهام النص نص"
-    normall3: "المستوى الثالث في إنجاز المهام النص نص"
-    lowl1: "المستوى الأول في إنجاز المهام العادية"
-    lowl2: "المستوى الثاني في إنجاز المهام العادية"
-    lowl3: "المستوى الثالث في إنجاز المهام العادية"
-    firstsocial: "أول مشازكة على مواقع الشبكات اجتماعية"
-    sociall1: "المستوى الأول في عدد المشاركات على مواقع الشبكات اجتماعية"
-    sociall2: "المستوى الثاني في عدد المشاركات على مواقع الشبكات اجتماعية"
-    sociall3: "المستوى الثالث في عدد المشاركات على مواقع الشبكات اجتماعية"
+    firstsignin: "ﺃﻭﻝ ﺩﺧﻮﻝ ﻋﻠﻰ اﻟﻤﻮﻗﻊ"
+    early: "ﺩﺧﻮﻝ ﻋﻠﻰ اﻟﻤﻮﻗﻊ ﻣﻦ اﻟﺴﺎﻋﺔ ٣ اﻟﻰ ٧ ﺻﺒﺎﺣﺎ"
+    lastmonth: "ﺁﺧﺮ ﺩﺧﻮﻝ ﻋﻠﻰ اﻟﻤﻮﻗﻊ ﻣﻦ ﺷﻬﺮ ﻣﻀﻰ"
+    signinl1: "اﻟﻤﺴﺘﻮﻯ اﻷﻭﻝ ﻓﻲ ﻋﺪﺩ اﻟﺪﺧﻮﻝ ﻋﻠﻰ اﻟﻤﻮﻗﻊ"
+    signinl2: "اﻟﻤﺴﺘﻮﻯ اﻟﺜﺎﻧﻲ ﻓﻲ ﻋﺪﺩ اﻟﺪﺧﻮﻝ ﻋﻠﻰ اﻟﻤﻮﻗﻊ"
+    signinl3: "اﻟﻤﺴﺘﻮﻯ اﻟﺜﺎﻟﺚ ﻓﻲ ﻋﺪﺩ اﻟﺪﺧﻮﻝ ﻋﻠﻰ اﻟﻤﻮﻗﻊ"
+    highl1: "اﻟﻤﺴﺘﻮﻯ اﻷﻭﻝ ﻓﻲ ﺇﻧﺠﺎﺯ اﻟﻤﻬﺎﻡ اﻟﻤﻬﻤﺔ ﺟﺪا"
+    highl2: "اﻟﻤﺴﺘﻮﻯ اﻟﺜﺎﻧﻲ ﻓﻲ ﺇﻧﺠﺎﺯ اﻟﻤﻬﺎﻡ اﻟﻤﻬﻤﺔ ﺟﺪا"
+    highl3: "اﻟﻤﺴﺘﻮﻯ اﻟﺜﺎﻟﺚ ﻓﻲ ﺇﻧﺠﺎﺯ اﻟﻤﻬﺎﻡ اﻟﻤﻬﻤﺔ ﺟﺪا"
+    normall1: "اﻟﻤﺴﺘﻮﻯ اﻷﻭﻝ ﻓﻲ ﺇﻧﺠﺎﺯ اﻟﻤﻬﺎﻡ اﻟﻨﺺ ﻧﺺ"
+    normall2: "اﻟﻤﺴﺘﻮﻯ اﻟﺜﺎﻧﻲ ﻓﻲ ﺇﻧﺠﺎﺯ اﻟﻤﻬﺎﻡ اﻟﻨﺺ ﻧﺺ"
+    normall3: "اﻟﻤﺴﺘﻮﻯ اﻟﺜﺎﻟﺚ ﻓﻲ ﺇﻧﺠﺎﺯ اﻟﻤﻬﺎﻡ اﻟﻨﺺ ﻧﺺ"
+    lowl1: "اﻟﻤﺴﺘﻮﻯ اﻷﻭﻝ ﻓﻲ ﺇﻧﺠﺎﺯ اﻟﻤﻬﺎﻡ اﻟﻌﺎﺩﻳﺔ"
+    lowl2: "اﻟﻤﺴﺘﻮﻯ اﻟﺜﺎﻧﻲ ﻓﻲ ﺇﻧﺠﺎﺯ اﻟﻤﻬﺎﻡ اﻟﻌﺎﺩﻳﺔ"
+    lowl3: "اﻟﻤﺴﺘﻮﻯ اﻟﺜﺎﻟﺚ ﻓﻲ ﺇﻧﺠﺎﺯ اﻟﻤﻬﺎﻡ اﻟﻌﺎﺩﻳﺔ"
+    firstsocial: "ﺃﻭﻝ ﻣﺸﺎﺯﻛﺔ ﻋﻠﻰ ﻣﻮاﻗﻊ اﻟﺸﺒﻜﺎﺕ اﺟﺘﻤﺎﻋﻴﺔ"
+    sociall1: "اﻟﻤﺴﺘﻮﻯ اﻷﻭﻝ ﻓﻲ ﻋﺪﺩ اﻟﻤﺸﺎﺭﻛﺎﺕ ﻋﻠﻰ ﻣﻮاﻗﻊ اﻟﺸﺒﻜﺎﺕ اﺟﺘﻤﺎﻋﻴﺔ"
+    sociall2: "اﻟﻤﺴﺘﻮﻯ اﻟﺜﺎﻧﻲ ﻓﻲ ﻋﺪﺩ اﻟﻤﺸﺎﺭﻛﺎﺕ ﻋﻠﻰ ﻣﻮاﻗﻊ اﻟﺸﺒﻜﺎﺕ اﺟﺘﻤﺎﻋﻴﺔ"
+    sociall3: "اﻟﻤﺴﺘﻮﻯ اﻟﺜﺎﻟﺚ ﻓﻲ ﻋﺪﺩ اﻟﻤﺸﺎﺭﻛﺎﺕ ﻋﻠﻰ ﻣﻮاﻗﻊ اﻟﺸﺒﻜﺎﺕ اﺟﺘﻤﺎﻋﻴﺔ"
 
   creator_cont:
     Game_created: "Game was successfully created."

@@ -11,10 +11,10 @@
   %body{class: "normal-wrapper"}
     .container-fluid
       = render "layouts/header"
-    .container-fluid
-      .row-fluid
+    .container
+      .row
         = render "layouts/flash_messages"
-      .row-fluid
+      .row
         = yield
     .home-wrapper.footer.navbar-fixed-bottom{style: "padding-top:5px;#{check_home}"}
       .container-fluid

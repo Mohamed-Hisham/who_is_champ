@@ -22,7 +22,7 @@
 en:
   nav:
     profile: "Profile"
-    gamify: "Gamify"
+    gamify: "Meen El Brence?"
     about: "About"
   common:
     welcome: "Welcome"
@@ -56,7 +56,7 @@ en:
       signup: "Sign Up"
       creator: "Competition Manager"
       user: "User"
-      slogan: gamify your work...gamify your life
+      slogan: "Gamify your work ... Gamify your life!"
       game_description: "Game Description"
       number_of_rules: "Number of Rules"
       number_of_game_members: "Number of competiton members"
