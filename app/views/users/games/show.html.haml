@@ -28,7 +28,7 @@
                       = rule.priority.humanize
       .col-md-6.col-md-offset-1
         .col-md-12.leaderboard-upper
-          %label{class:"game-list-title leaderboard-title"} #{t('views.home.leaderboard')}
+          %label{class:"leaderboard-title"} #{t('views.home.leaderboard')}
           .col-md-12.top-leaderboard-header
             - @top_users.each do |user|
               .col-md-3.top-leader-entry
