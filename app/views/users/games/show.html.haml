@@ -12,36 +12,39 @@
           %h5 #{t('views.login.number_of_rules')}: #{@rules.count}
         .row
           %h5 #{t('views.login.number_of_game_members')}: #{@game.users.count}
-        -# %br
-        -# .row
-        -#   %h4 Completed Rules
-        -#   %div{id: "rules", style: "height:270px;"}
-        -#     %table{class: "table table-hover table-condensed table-striped"}
-        -#       - @completed_rules.each do |rule|
-        -#         %tr
-        -#           %td
-        -#             %i{class: "fa fa-check-square-o"}
-        -#           %td
-        -#             = rule.description
-        -#           %td
-        -#             %span{class: "#{rule_priority(rule)}"}
-        -#               = rule.priority.humanize
+        %br
+        .row
+          %h4 Completed Rules
+          %div{id: "rules", style: "height:270px;"}
+            %table{class: "table table-hover table-condensed table-striped"}
+              - @completed_rules.each do |rule|
+                %tr
+                  %td
+                    %i{class: "fa fa-check-square-o"}
+                  %td
+                    = rule.description
+                  %td
+                    %span{class: "#{rule_priority(rule)}"}
+                      = rule.priority.humanize
       .col-md-6.col-md-offset-1
         .col-md-12.leaderboard-upper
-          %label{class:"game-list-title", style: "color:white;"} #{t('views.home.leaderboard')}
-          - @top_users.each do |user|
-            %div
-              = user.name
-              .title-h4
-                %span{class: "label label-info"}
-                  = user.rank
-              .title-h4
-                %span{class: "label label-success"}
-                  #{user.pts} #{t('views.home.points', count: user.pts)}
+          %label{class:"game-list-title leaderboard-title"} #{t('views.home.leaderboard')}
+          .col-md-12.top-leaderboard-header
+            - @top_users.each do |user|
+              .col-md-3.top-leader-entry
+                #{(@top_users.index(user) + 1).ordinalize}
+                %br
+                = user.name
+                .title-h4.p-arabic
+                  %span{class: "label label-info"}
+                    = user.rank
+                .title-h4.p-arabic
+                  %span{class: "label label-success"}
+                    #{user.pts} #{t('views.home.points', count: user.pts)}
 
         .col-md-12.leaderboard-col-left
           .leaderboard-col-right
-            .col-md-10{style: "margin-top:0px;margin-left:30px;"}
+            .col-md-10.rest-leaderboard
               %table{class: "table table-hover table-condensed table-striped"}
                 - @users.each do |user|
                   %tr

@@ -8,7 +8,7 @@ class Creators::GamesController < ApplicationController
   def show
     @user = User.new
     @rule = @game.rules.new
-    @users = @game.users.order(pts: :desc)
+    @users = @game.users.order(pts: :desc).where.not(name: "")
     @pending_rules = @game.rules.joins(:user_rules).where(user_rules: {status: UserRule.statuses[:pending]}).order(:updated_at).all.to_a
   end
 

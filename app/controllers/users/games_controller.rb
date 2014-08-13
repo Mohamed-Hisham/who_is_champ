@@ -9,7 +9,7 @@ class Users::GamesController < ApplicationController
     @rules = @game.rules
     @completed_rules = @game.rules.joins(:user_rules).where(user_rules: {user_id: @user.id, status: UserRule.statuses[:complete]}).order(:updated_at).all.to_a
     @top_users = @game.users.order(pts: :desc).take(3)
-    @users = @game.users.where.not(id: @top_users).order(pts: :desc)
+    @users = @game.users.where.not(id: @top_users).order(pts: :desc).where.not(name: "")
   end
 
   private

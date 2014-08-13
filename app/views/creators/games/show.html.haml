@@ -42,7 +42,7 @@
         %label{class:"title-h3"} #{t('views.home.rules')}
         %button{class: "btn btn-sm btn-success pull-right", style: "width:127px;", data: {toggle:"modal", target:"#RuleModal"}}
           #{t('views.creator_profile.add_new_rule')}
-      .col-md-6.col-md-offset-1
+      .col-md-6.col-md-offset-1.leaderboard-upper-creator
         %label{class:"title-h3"} #{t('views.home.leaderboard')}
 
     .row
@@ -68,25 +68,26 @@
         - else
           No Rules created yet!
 
-      .col-md-6.col-md-offset-1
-        - if @game.users.any?
-          %div{id: "rules"}
-            %table{class: "table table-hover table-condensed table-striped"}
-              - @users.each do |user|
-                %tr
-                  %td
-                    = user.name
-                  %td
-                    .title-h4
-                      %span{class: "label label-info pull-right"}
-                        = user.rank
-                  %td
-                    .title-h4
-                      %span{class: "label label-success pull-right"}
-                        #{user.pts} #{t('views.home.points', count: user.pts)}
-        - else
-          No users have joined the game yet!
-          Begin inviting users
+      .col-md-7.leader-rest-creator.leaderboard-creator-col-left
+        .leaderboard-creator-col-right
+          - if @game.users.any?
+            %div{id: "rules", style: "margin-left: 30px;"}
+              %table{class: "table table-hover table-condensed table-striped"}
+                - @users.each do |user|
+                  %tr
+                    %td
+                      = user.name
+                    %td
+                      .title-h4
+                        %span{class: "label label-info pull-right"}
+                          = user.rank
+                    %td
+                      .title-h4
+                        %span{class: "label label-success pull-right"}
+                          #{user.pts} #{t('views.home.points', count: user.pts)}
+          - else
+            No users have joined the game yet!
+            Begin inviting users
   .col-md-3.col-md-offset-4{style:"margin-top:-80px;"}
     = link_to t('views.creator_profile.back_to_profile'), creator_path, class: "btn btn-default btn-block"
 

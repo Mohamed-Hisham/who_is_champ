@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
     user_badge_entry.update(achieved: true) if self.sign_in_count >= 20
 
     user_badge_entry = UserBadge.find_or_create_by!(user_id: self.id, game_id: self.game.id, badge_id: Badge.find_by(badge_type: "signinl3").id)
-    user_badge_entry.update(achieved: true) if self.sign_in_count >= 30
+    user_badge_entry.update(achieved: true) if self.sign_in_count >= 70
   end
 
   def high_rules
