@@ -23,7 +23,7 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+test: &test
   <<: *default
   database: gamification_test
 
@@ -51,3 +51,6 @@ production:
   database: gamification_production
   username: gamification
   password: <%= ENV['GAMIFICATION_DATABASE_PASSWORD'] %>
+
+cucumber:
+  <<: *test

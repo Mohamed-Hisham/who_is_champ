@@ -61,12 +61,31 @@ group :development do
   gem 'meta_request', '~> 0.3.4'
   gem 'powder', '~> 0.2.1'
   gem 'rails-erd', '~> 1.1.0'
+  gem 'zeus', '~> 0.15.1'
+  # Guard
+  gem 'guard-bundler'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
 end
 
 group :development, :test do
   gem 'railroady'
   # Use debugger
   gem 'debugger'
+end
+
+group :test do
+  gem 'cucumber', '~> 1.3.16' , require: false
+  gem 'cucumber-rails', '~> 1.4.1', require: false
+  gem 'database_cleaner', '~> 1.3.0'
+  gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'forgery', '~> 0.6.0'
+  gem 'capybara', '~> 2.4.1', require: false
+  gem 'rspec-rails', '~> 3.0.2'
+  gem 'selenium-webdriver', '~> 2.42.0'
+  gem 'fuubar', '~> 2.0.0'
+  gem 'fuubar-cucumber', '~> 0.0.22'
 end
 
 group :doc do

@@ -6,7 +6,7 @@ class Users::RulesController < ApplicationController
 
     respond_to do |format|
       if @user_rule_entry.update_status(:pending)
-        format.html { redirect_to @user, notice: "Rule \"#{@rule.description.truncate(40)}\" was marked as pending. Awaitng Creator to approve." }
+        format.html { redirect_to @user, notice: "Rule #{@rule.description.truncate(40)} was marked as pending. Awaiting Creator to approve." }
         format.json { head :no_content }
       else
         format.html { redirect_to @user, notice: "Rule \"#{@rule.description.truncate(40)}\" was NOT marked as pending. Please try again." }
