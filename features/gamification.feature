@@ -11,7 +11,7 @@ Background:
     | Mohamed | mohamed@m.com | password |
     And A competition manager available
     | Name | Email   | Password |
-    | H    | h@m.com | password |
+    | Heba    | h@m.com | password |
 
 @javascript
 Scenario: Mark Rule as complete. Points, and Rank Awarded

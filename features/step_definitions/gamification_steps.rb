@@ -51,9 +51,11 @@ When(/^the competition has the following rules$/) do |table|
 end
 
 When(/^I sign in as member$/) do
+  @user.check_rank
   visit path_for('member login')
   fill_in 'Email', with: @user[:email]
   fill_in 'Password', with: "password"
+  sleep 2
   click_button 'Sign in'
 end
 
@@ -65,31 +67,38 @@ Then(/^the competition manager signs in to his profile$/) do
   visit path_for('creator login')
   fill_in 'Email', with: @creator[:email]
   fill_in 'Password', with: "password"
+  sleep 2
   click_button 'Sign in'
 end
 
 Then(/^the competition manager checks the competition$/) do
+  sleep 2
   click_link_or_button 'View Competition'
 end
 
 Then(/^the competition manager should see "(.*?)"$/) do |pending_rule_title|
+  sleep 2
   page.text.scan(/(#{pending_rule_title})/)
 end
 
 Then(/^the competition manager approves the "(.*?)"$/) do |pending_rule|
+  sleep 2
   click_link_or_button 'Approve'
 end
 
 Then(/^I should receive (\d+) points$/) do |points|
   @user.reload
+  sleep 2
   expect(@user.pts).to eq(points.to_i)
 end
 
 Then(/^I should receive "(.*?)" rank$/) do |rank|
+  sleep 2
   expect(@user.rank).to eq(rank)
 end
 
 Then(/^I should receive "(.*?)" badge$/) do |arg1|
   @user_badge = UserBadge.first
+  sleep 2
   expect(@user_badge.achieved).to eql(true)
 end

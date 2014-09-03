@@ -12,11 +12,12 @@ end
 
 
 When /^(?:I|He) click(?:s)? (?:the\s)?(.+) button$/ do |button|
-  set_speed(:slow)
+  sleep 2
   click_link_or_button button
 end
 
 When /^I fill in (.*?) with "(.*?)"$/ do |field, value|
+  sleep 2
   fill_in field, with: value
 end
 
@@ -25,6 +26,7 @@ When /^I attach "(.*?)" to (.*?)$/ do |filename, field|
 end
 
 When /^I click (.*?) link$/ do |title|
+  sleep 2
   click_link_or_button title
 end
 
